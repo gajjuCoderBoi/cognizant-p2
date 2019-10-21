@@ -1,10 +1,14 @@
 package com.ga.dao;
 
 import com.ga.entity.Post;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 public interface PostDao {
+
+
     public List<Post> listPost();
     public Post getPostById(Long postId);
     public Post addPost(Post post);

@@ -1,8 +1,7 @@
 package com.ga.dao;
 
-import com.ga.entity.Comment;
-
 import java.util.List;
+import com.ga.entity.Comment;
 
 
 public interface CommentDao {
@@ -12,6 +11,3 @@ public interface CommentDao {
         public Comment editComment(Comment comment);
         public Comment deleteComment(Long commentId);
 }
-
-//        Do this on posts?
-//    public List<Comment> getCommentsByPosts();
