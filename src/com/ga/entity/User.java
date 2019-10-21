@@ -1,6 +1,7 @@
 package com.ga.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -19,6 +20,9 @@ public class User {
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_role_id")
     private UserRole userRole;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile", cascade = CascadeType.ALL)
+    private UserProfile profile;
 
     public User(String username, String password, UserRole userRole) {
         this.username = username;
