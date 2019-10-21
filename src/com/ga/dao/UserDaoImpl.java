@@ -16,6 +16,9 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     SessionFactory sessionFactory;
 
+    @Autowired
+    UserRoleDao userRoleDao;
+
 
     @PreAuthorize("ADMIN")
     @Override
