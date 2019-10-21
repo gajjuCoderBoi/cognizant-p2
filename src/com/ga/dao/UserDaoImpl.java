@@ -38,7 +38,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User signup(User user) {
         String roleName = user.getUserRole().getName();
-        UserRole userRole = userRoleDao.getRole(roleName);
+        UserRole userRole = userRoleDao.getRoleByName(roleName);
         Session session = sessionFactory.getCurrentSession();
 
         try {
