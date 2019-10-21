@@ -1,7 +1,6 @@
 package com.ga.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -11,10 +10,10 @@ public class User {
     @Column(name = "user_id")
     private Long userId;
 
-    @Column
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
@@ -24,10 +23,19 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile", cascade = CascadeType.ALL)
     private UserProfile profile;
 
-    public User(String username, String password, UserRole userRole) {
+    public UserProfile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(UserProfile profile) {
+        this.profile = profile;
+    }
+
+    public User(String username, String password, UserRole userRole, UserProfile profile) {
         this.username = username;
         this.password = password;
         this.userRole = userRole;
+        this.profile = profile;
     }
 
     public UserRole getUserRole() {
