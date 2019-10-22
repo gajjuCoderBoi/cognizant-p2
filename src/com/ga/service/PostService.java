@@ -8,9 +8,10 @@ public interface PostService {
 
     public Post addPost(Post post);
 
+        public List<Post> listPost();
+
 }
 
-//    public List<Post> listPost();
 //    public Post getPostById(Long postId);
 //    public Post editPost(Post post);
 //    public Post deletePost(Long postId);
