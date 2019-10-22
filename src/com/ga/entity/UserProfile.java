@@ -38,6 +38,12 @@ public class UserProfile {
         this.address = address;
     }
 
+    public void updateProfile(UserProfile profile) {
+        this.email = profile.email;
+        this.mobile = profile.mobile;
+        this.address = profile.address;
+    }
+
     public UserProfile() {}
 
     public Long getProfileId() {

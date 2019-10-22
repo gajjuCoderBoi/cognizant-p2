@@ -33,6 +33,22 @@ public class UserProfileDaoImpl implements UserProfileDao {
     }
 
     @Override
+    public UserProfile updateProfile(String username, UserProfile newProfile) {
+        User user = userDao.getUserByUsername(username);
+        UserProfile userProfile = user.getProfile();
+        Session session = sessionFactory.getCurrentSession();
+        try{
+            session.beginTransaction();
+            userProfile.updateProfile(newProfile);
+            session.update(userProfile);
+            session.getTransaction().commit();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
+    @Override
     public UserProfile getUserProfile(String username) {
         return userDao.getUserByUsername(username).getProfile();
     }
