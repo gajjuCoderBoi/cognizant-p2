@@ -20,6 +20,17 @@ public class UserProfile {
     @Column(name = "address")
     private String address;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public UserProfile(String email, String mobile, String address) {
         this.email = email;

@@ -26,9 +26,10 @@ public class Post {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "user_post",
+    /*@JoinTable(name = "user_post",
             joinColumns = {@JoinColumn(name = "post_id")},
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
+            inverseJoinColumns = @JoinColumn(name = "user_id"))*/
+    @JoinColumn(name = "user_id")
     private User user;
 
     public User getUser() {

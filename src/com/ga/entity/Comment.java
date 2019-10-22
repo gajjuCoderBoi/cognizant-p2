@@ -39,18 +39,20 @@ public class Comment {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "user_comment",
+    /*@JoinTable(name = "user_comment",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "comment_id"))
+            inverseJoinColumns = @JoinColumn(name = "comment_id"))*/
+    @JoinColumn(name = "user_id")
     private User user;
 
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "post_comment",
+    /*@JoinTable(name = "post_comment",
             joinColumns = {@JoinColumn(name = "post_id")},
-            inverseJoinColumns = @JoinColumn(name = "comment_id"))
+            inverseJoinColumns = @JoinColumn(name = "comment_id"))*/
+    @JoinColumn(name = "post_id")
     private Post post;
 
     public User getUser() {
