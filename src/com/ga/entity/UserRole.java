@@ -14,10 +14,14 @@ public class UserRole {
     @Column
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userRole", cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private List<User> users;
 
     public UserRole() {
+    }
+
+    public UserRole(String name) {
+        this.name = name;
     }
 
     public UserRole(String name, List<User> users) {

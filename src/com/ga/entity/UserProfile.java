@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "user_profiles")
+@Table(name = "profiles")
 public class UserProfile {
     @Id
     @Column(name = "profile_id")
@@ -36,6 +36,12 @@ public class UserProfile {
         this.email = email;
         this.mobile = mobile;
         this.address = address;
+    }
+
+    public void updateProfile(UserProfile profile) {
+        this.email = profile.email;
+        this.mobile = profile.mobile;
+        this.address = profile.address;
     }
 
     public UserProfile() {}
