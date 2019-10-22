@@ -17,6 +17,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("com.ga")
 public class AppConfig {
+
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -43,7 +44,7 @@ public class AppConfig {
 
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         hibernateProperties.setProperty("hibernate.current_session_context_class", "thread");
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create"); // create-drop update
+       //hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create"); // create-drop update
         hibernateProperties.setProperty("hibernate.show_sql", "true");
 
         return hibernateProperties;

@@ -12,9 +12,25 @@ import java.util.List;
 public class CommentDaoImpl implements CommentDao {
 
     @Autowired
-    private SessionFactory sessionFactory;
+    SessionFactory sessionFactory;
 
     @Override
+    public Comment addComment(Comment comment) {
+            Session session = sessionFactory.getCurrentSession();
+
+            try {
+                session.beginTransaction();
+
+                session.save(comment);
+                session.getTransaction().commit();
+            } finally {
+                session.close();
+            }
+
+            return comment;
+        }
+
+        @Override
     public List<Comment> listComments() {
         List<Comment> comments = null;
 
@@ -32,38 +48,19 @@ public class CommentDaoImpl implements CommentDao {
 
     }
 
-//    List<Song> songs = null;
-//
-//    Session session = sessionFactory.getCurrentSession();
-//
-//		try {
-//        session.beginTransaction();
-//
-//        songs = session.createQuery("FROM Song").getResultList();
-//    } finally {
-//        session.close();
+}
+
+//    @Override
+//    public Comment getCommentById(Long commentId) {
+//        return null;
 //    }
 //
-//		return songs;
-//}
-
-    @Override
-    public Comment getCommentById(Long commentId) {
-        return null;
-    }
-
-    @Override
-    public Comment addComment(Comment comment) {
-        return null;
-    }
-
-    @Override
-    public Comment editComment(Comment comment) {
-        return null;
-    }
-
-    @Override
-    public Comment deleteComment(Long commentId) {
-        return null;
-    }
-}
+//    @Override
+//    public Comment editComment(Comment comment) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Comment deleteComment(Long commentId) {
+//        return null;
+//    }
