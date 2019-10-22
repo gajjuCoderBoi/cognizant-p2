@@ -57,7 +57,7 @@ public class UserDaoTest {
         user2.setUserId(1L);
         user2.setUsername("batman");
         user2.setPassword("robin");
-        user2.setUserRole(userRole);
+        //user2.setUserRole(userRole);
 
 
         when(sessionFactory.getCurrentSession()).thenReturn(session);
@@ -97,16 +97,6 @@ public class UserDaoTest {
     public void getUserByUsername() {
     }
 
-
-    public void singup_User_Fail() {
-        UserRole role = new UserRole();
-        role.setName("ROLE");
-        when(userRoleDao.getRoleByName(anyString())).thenReturn(userRole);
-        when(user.getUserRole()).thenReturn(role);
-        User user = userDao.signup(user2);
-
-        assertNull(user);
-    }
 
 
     private void signup_User_Success() {
