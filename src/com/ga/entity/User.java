@@ -20,22 +20,10 @@ public class User {
     @JoinColumn(name = "user_role_id")
     private UserRole userRole;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile", cascade = CascadeType.ALL)
-    private UserProfile profile;
-
-    public UserProfile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(UserProfile profile) {
-        this.profile = profile;
-    }
-
-    public User(String username, String password, UserRole userRole, UserProfile profile) {
+    public User(String username, String password, UserRole userRole) {
         this.username = username;
         this.password = password;
         this.userRole = userRole;
-        this.profile = profile;
     }
 
     public UserRole getUserRole() {

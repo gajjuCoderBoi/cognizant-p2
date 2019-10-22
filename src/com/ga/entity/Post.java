@@ -29,14 +29,14 @@ public class Post {
     @JoinTable(name = "user_post",
             joinColumns = {@JoinColumn(name = "post_id")},
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> users;
+    private User user;
 
-    public List<User> getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getPostId() {

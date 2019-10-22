@@ -20,9 +20,6 @@ public class UserProfile {
     @Column(name = "address")
     private String address;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_profile_id")
-    private User userProfile;
 
     public UserProfile(String email, String mobile, String address) {
         this.email = email;

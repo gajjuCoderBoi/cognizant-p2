@@ -40,17 +40,10 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "user_comment",
-            joinColumns = {@JoinColumn(name = "user_id")},
+            joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "comment_id"))
-    private List<User> user;
+    private User user;
 
-    public List<User> getUser() {
-        return user;
-    }
-
-    public void setUser(List<User> user) {
-        this.user = user;
-    }
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
@@ -58,14 +51,21 @@ public class Comment {
     @JoinTable(name = "post_comment",
             joinColumns = {@JoinColumn(name = "post_id")},
             inverseJoinColumns = @JoinColumn(name = "comment_id"))
-    private List<Post> post;
+    private Post post;
 
-    public List<Post> getPost() {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Post getPost() {
         return post;
     }
 
-    public void setPost(List<Post> post) {
+    public void setPost(Post post) {
         this.post = post;
     }
-
 }
