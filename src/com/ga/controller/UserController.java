@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @PostMapping("/singup")
+    @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody User user){
         return ResponseEntity.ok(new JwtResponse(userService.signup(user)));
     }

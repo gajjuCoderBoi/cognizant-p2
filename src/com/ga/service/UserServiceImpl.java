@@ -43,7 +43,6 @@ public class UserServiceImpl implements UserService {
         if (userDao.signup(user).getUserId() != null) {
             UserDetails userDetails = loadUserByUsername(user.getUsername());
             return new Pair<String, String>(user.getUsername(), jwtUtil.generateToken(userDetails));
-
         }
 
         return null;
@@ -56,7 +55,6 @@ public class UserServiceImpl implements UserService {
                 foundUser.getUserId() != null &&
                 bCryptPasswordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
             UserDetails userDetails = loadUserByUsername(foundUser.getUsername());
-
             return new Pair<String, String>(user.getUsername(), jwtUtil.generateToken(userDetails));
         }
 

@@ -1,5 +1,7 @@
 package com.ga.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,7 +16,8 @@ public class UserRole {
     @Column
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY ,mappedBy = "roles", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private List<User> users;
 
     public UserRole() {

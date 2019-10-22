@@ -28,7 +28,7 @@ public class UserProfile {
         this.user = user;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private User user;
 

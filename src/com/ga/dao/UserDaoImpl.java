@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -37,18 +38,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User signup(User user) {
-        /*String roleName = user.getUserRole().getName();
-        UserRole userRole = userRoleDao.getRoleByName(roleName);
+        List<UserRole> roles = new ArrayList<>();
+        for (UserRole userRole:user.getRoles()){
+            roles.add(userRoleDao.getRoleByName(userRole.getName()));
+        }
         Session session = sessionFactory.getCurrentSession();
 
         try {
             session.beginTransaction();
-            user.setUserRole(userRole);
+            user.setRoles(roles);
             session.save(user);
             session.getTransaction().commit();
         } finally {
             session.close();
-        }*/
+        }
         return user;
     }
 
