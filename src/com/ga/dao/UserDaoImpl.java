@@ -42,6 +42,7 @@ public class UserDaoImpl implements UserDao {
         for (UserRole userRole:user.getRoles()){
             roles.add(userRoleDao.getRoleByName(userRole.getName()));
         }
+
         Session session = sessionFactory.getCurrentSession();
 
         try {
@@ -60,7 +61,7 @@ public class UserDaoImpl implements UserDao {
         Session session = sessionFactory.getCurrentSession();
         User savedUser;
         try {
-            session.getTransaction();
+            session.beginTransaction();
             savedUser = (User) session.createQuery("FROM User u WHERE u.username = '" +
                     user.getUsername() + "'").getSingleResult();
         } finally {
