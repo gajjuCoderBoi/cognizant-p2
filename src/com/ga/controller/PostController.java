@@ -21,13 +21,9 @@ public class PostController {
                 return postService.addPost(post);
     }
 
+        @GetMapping("/list")
+    public Iterable<Post> listPost() {
+        return postService.listPost();
+    }
+
 }
-
-
-//
-//    @GetMapping("/list")
-//    public Iterable<Comment> listComments() {
-//        return commentService.listComments();
-//    }
-//
-//}

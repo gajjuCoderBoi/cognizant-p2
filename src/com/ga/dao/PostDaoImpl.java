@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 //import java.util.List;
 
 @Repository
@@ -32,13 +34,26 @@ public class PostDaoImpl implements PostDao {
 
     }
 
+    @Override
+    public List<Post> listPost() {
+        List<Post> posts = null;
+
+        Session session = sessionFactory.getCurrentSession();
+
+        try {
+            session.beginTransaction();
+
+            posts = session.createQuery("FROM Post").getResultList();
+        } finally {
+            session.close();
+        }
+
+        return posts;
+    }
+
 
 }
 
-//    @Override
-//    public List<Post> listPost() {
-//        return null;
-//    }
 
 //    @Override
 //    public Post getPostById(Long postId) {

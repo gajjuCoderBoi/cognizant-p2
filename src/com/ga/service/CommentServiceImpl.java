@@ -19,7 +19,7 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.addComment(comment);
     }
 
-        @Override
+    @Override
     public List<Comment> listComments() {
         return commentDao.listComments();
     }
