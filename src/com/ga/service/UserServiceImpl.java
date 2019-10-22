@@ -4,6 +4,7 @@ import com.ga.config.JwtUtil;
 import com.ga.dao.UserDao;
 import com.ga.entity.User;
 import com.ga.entity.UserRole;
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,28 +36,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String signup(User user) {
+    public Pair<String, String> signup(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.getRoles().add(new UserRole("USER"));
 
         if (userDao.signup(user).getUserId() != null) {
             UserDetails userDetails = loadUserByUsername(user.getUsername());
+            return new Pair<String, String>(user.getUsername(), jwtUtil.generateToken(userDetails));
 
-            return jwtUtil.generateToken(userDetails);
         }
 
         return null;
     }
 
     @Override
-    public String login(User user) {
+    public Pair<String, String> login(User user) {
         User foundUser = userDao.login(user);
         if(foundUser != null &&
                 foundUser.getUserId() != null &&
                 bCryptPasswordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
             UserDetails userDetails = loadUserByUsername(foundUser.getUsername());
 
-            return jwtUtil.generateToken(userDetails);
+            return new Pair<String, String>(user.getUsername(), jwtUtil.generateToken(userDetails));
         }
 
         return null;
