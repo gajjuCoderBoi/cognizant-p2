@@ -68,7 +68,7 @@ Default response content-types: application/json
 
 Schemes: http 
 ```
-#### Summary
+### Summary
 
 <table style="
     width: 100%;
@@ -227,6 +227,77 @@ Schemes: http
     </tbody>
     </table>
     
+### Security
+
+```text
+tokenBasedAuth
+type: Bearer Token
+
+Description:
+
+Basic HTTP authorization with Bearer Token.
+
+
+* Bearer Token will be returned after login using 'username' and 'password'.
+```
+    
+### Objects
+
+```text
+User
+ * Properties 
+    -> userId : integer
+    -> username : string
+    -> passsword : string
+    -> roles : List<Role>
+    -> profile : UserProfile
+    -> posts : List<Post>
+    -> comments : List<Comment>
+```
+
+```text
+Role
+ * Properties 
+    -> roleId : integer
+    -> name : string
+    -> users : List<User>
+```
+
+```text
+Profile
+ * Properties 
+    -> profileId : integer
+    -> email : string
+    -> mobile : string
+    -> address : string
+    -> user : User
+```
+
+```text
+Post
+ * Properties 
+    -> postId : integer
+    -> title : string
+    -> postText : string
+    -> user : User
+```
+
+```text
+Comment
+ * Properties 
+    -> commentId : integer
+    -> commentText : string
+    -> user : User
+    -> post : Post
+```
+
+```text
+JwtResponse
+ * Properties 
+    -> username : string
+    -> jwt : string
+```
+
     
 ## Creators
 
