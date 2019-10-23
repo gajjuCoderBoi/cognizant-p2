@@ -79,7 +79,7 @@ Schemes: http
     border-spacing: 0;
     background-color: transparent;
     display: table;
-">
+" align="center">
     <thead>
     <tr>
         <th>Path</th>
@@ -226,6 +226,8 @@ Schemes: http
     </tr>
     </tbody>
     </table>
+    
+    
 ## Creators
 
 **Marcus Sauceda**
