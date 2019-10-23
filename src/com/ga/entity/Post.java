@@ -25,7 +25,7 @@ public class Post {
     public Post() {}
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,
+    @ManyToOne(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private User user;
@@ -59,6 +59,10 @@ public class Post {
 
     public void setPostId(Long postId) {
         this.postId = postId;
+    }
+
+    public String getUserName() {
+        return user.getUsername();
     }
 
     public String getTitle() {
