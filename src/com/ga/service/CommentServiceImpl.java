@@ -15,8 +15,8 @@ public class CommentServiceImpl implements CommentService {
 
 
     @Override
-    public Comment addComment(Comment comment) {
-        return commentDao.addComment(comment);
+    public Comment addComment(Long postId , Comment comment) {
+        return commentDao.addComment(postId, comment);
     }
 
     @Override

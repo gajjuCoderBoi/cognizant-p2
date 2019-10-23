@@ -55,7 +55,6 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
-
     public Post getPost() {
         return post;
     }
@@ -63,4 +62,5 @@ public class Comment {
     public void setPost(Post post) {
         this.post = post;
     }
+
 }
