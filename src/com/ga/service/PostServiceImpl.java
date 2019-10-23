@@ -38,8 +38,21 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post addComment(Long postId, Comment comment){
+    public Post addComment(Long postId, Comment comment) {
         return postDao.addComment(postId, comment);
-    };
+    }
+
+    @Override
+    public Post updatePost(Long postId, Post post, String token) {
+        String username = jwtUtil.getUsernameFromToken(token);
+        return postDao.updatePost(postId, post, username);
+    }
+
+    @Override
+    public Long deletePost(Long postId, String token) {
+        String username = jwtUtil.getUsernameFromToken(token);
+        return postDao.deletePost(postId, username);
+    }
+
 
 }

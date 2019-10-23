@@ -15,8 +15,8 @@ public interface PostService {
 
     public Post addComment(Long postId, Comment comment);
 
+    public Post updatePost(Long postId, Post post, String token);
+
+    public Long deletePost(Long postId, String token);
 }
 
-//    public Post getPostById(Long postId);
-//    public Post editPost(Post post);
-//    public Post deletePost(Long postId);
