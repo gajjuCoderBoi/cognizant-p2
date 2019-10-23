@@ -30,8 +30,6 @@ public class JwtUtil implements Serializable {
     }
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {
-        System.out.println(subject);
-        System.out.println(secret);
         return Jwts.builder().setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
@@ -40,6 +38,8 @@ public class JwtUtil implements Serializable {
     }
 
     public String getUsernameFromToken(String token) {
+        if(token.startsWith("Bearer "))
+            token = token.substring(7);
         return getClaimFromToken(token, Claims::getSubject);
     }
 

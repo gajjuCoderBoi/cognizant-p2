@@ -73,8 +73,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User update(User user, String username) {
         User saveduser = getUserByUsername(username);
+
         Session session = sessionFactory.getCurrentSession();
         try {
+            session.beginTransaction();
             saveduser.setPassword(user.getPassword());
             session.update(saveduser);
             session.getTransaction().commit();

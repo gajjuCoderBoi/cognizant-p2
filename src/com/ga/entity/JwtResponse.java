@@ -9,12 +9,15 @@ public class JwtResponse {
     private String username;
 
     public JwtResponse(String jwt) {
+        if(jwt.startsWith("Bearer "))
+            jwt = jwt.substring(7);
         this.jwt = jwt;
     }
 
     public JwtResponse(Pair<String, String> signup) {
         username = signup.getKey();
-        jwt = signup.getValue();
+        if(signup.getValue().startsWith("Bearer "))
+            jwt = signup.getValue().substring(7);
     }
 
     public String getToken() {

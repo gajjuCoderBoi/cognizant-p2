@@ -62,9 +62,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String update(User user, String token) {
-        userDao.update(user, jwtUtil.getUsernameFromToken(token));
-        return token;
+    public Pair<String, String> update(User user, String token) {
+        System.out.println(user.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user =  userDao.update(user, jwtUtil.getUsernameFromToken(token));
+        return new Pair<String, String>(user.getUsername(), token);
+
     }
 
     @Override
