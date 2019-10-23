@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "posts")
-public class Post {
+public class  Post {
 
 
     @Id
