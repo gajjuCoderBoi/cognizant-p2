@@ -53,20 +53,22 @@ public class PostDaoImpl implements PostDao {
     }
 
     @Override
-    public Post addComment(Long postId, String commentText) {
-        Comment comment = null;
+    public Post addComment(Long postId, Comment comment) {
+        //Comment comment = null;
         Post post = null;
 
         Session session = sessionFactory.getCurrentSession();
 
         try{
             session.beginTransaction();
-
-            post = (Post)session.createQuery("FROM Post p WHERE p.post_id = '" + postId + "'").uniqueResult();
-            comment = session.get(Comment.class, commentText);
+            post = session.get(Post.class, postId);
+            comment.setPost(post);
+            session.save(comment);
+            /*post = (Post)session.createQuery("FROM Post p WHERE p.postId = '" + postId + "'").uniqueResult();
+            comment = session.get(Comment.class, commentId);
             post.addComments(comment);
 
-            session.update(post);
+            session.update(post);*/
 
             session.getTransaction().commit();
         } finally {

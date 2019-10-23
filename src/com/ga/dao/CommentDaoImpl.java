@@ -19,7 +19,7 @@ public class CommentDaoImpl implements CommentDao {
     SessionFactory sessionFactory;
 
     @Override
-    public Comment addComment(Long postId , Comment comment) {
+    public Comment createComment(Long postId , Comment comment) {
             Post post = postDao.getPostById(postId);
 
             Session session = sessionFactory.getCurrentSession();

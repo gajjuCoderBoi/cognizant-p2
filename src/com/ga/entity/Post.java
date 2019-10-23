@@ -30,12 +30,20 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
 
+
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Comment> comments;
 
+    public List<Comment> getComments() {
+        return comments;
+    }
 
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public User getUser() {
         return user;

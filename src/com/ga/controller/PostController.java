@@ -1,5 +1,6 @@
 package com.ga.controller;
 
+        import com.ga.entity.Comment;
         import com.ga.entity.Post;
         import com.ga.service.PostService;
         import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,9 @@ public class PostController {
         return postService.listPost();
     }
 
-    @GetMapping({"/{postId}/comment"})
-    public Post addComment(@PathVariable long postId, @RequestBody String commentText) {
-        return postService.addComment(postId, commentText);
+    @PostMapping({"/{postId}/comment/"})
+    public Post addComment(@PathVariable Long postId, @RequestBody Comment comment) {
+        return postService.addComment(postId, comment);
     }
 
 }

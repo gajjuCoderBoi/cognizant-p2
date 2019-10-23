@@ -10,9 +10,9 @@ public interface PostDao {
 
     public Post addPost(Post post);
 
-        public List<Post> listPost();
+    public List<Post> listPost();
 
-        public Post addComment(Long postId, String commentText);
+    public Post addComment(Long postId, Comment commentId);
 
      public Post getPostById(Long postId);
 

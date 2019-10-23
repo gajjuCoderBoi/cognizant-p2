@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CommentService {
 
-    public Comment addComment(Long postId , Comment comment);
+    public Comment createComment(Long postId , Comment comment);
 
     public List<Comment> listComments();
 

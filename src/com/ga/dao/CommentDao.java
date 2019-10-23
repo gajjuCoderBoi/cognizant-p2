@@ -6,7 +6,7 @@ import com.ga.entity.Comment;
 
 public interface CommentDao {
 
-        public Comment addComment(Long postId , Comment comment);
+        public Comment createComment(Long postId , Comment comment);
         public List<Comment> listComments();
 
 }

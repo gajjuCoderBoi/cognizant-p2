@@ -1,5 +1,6 @@
 package com.ga.service;
 
+import com.ga.entity.Comment;
 import com.ga.entity.Post;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface PostService {
 
         public List<Post> listPost();
 
-    public Post addComment(Long postId, String commentText);
+    public Post addComment(Long postId, Comment comment);
 
 }
 
