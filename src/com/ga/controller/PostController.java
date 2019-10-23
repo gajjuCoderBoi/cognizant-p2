@@ -30,9 +30,9 @@ public class PostController {
         return postService.listPostByUser(token);
     }
 
-    @PostMapping("/{postId}/comment/")
-    public Post addComment(@PathVariable Long postId, @RequestBody Comment comment) {
-        return postService.addComment(postId, comment);
+    @PostMapping({"/{postId}/comment/"})
+    public Comment addComment(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader("Authorization") String token) {
+        return postService.addComment(postId, comment, token);
     }
 
     @PutMapping("/{postId}")
@@ -53,7 +53,5 @@ public class PostController {
 
 }
 
-//    @PutMapping("/{username}/song/{songId}")
-//    public User addSong(@PathVariable String username, @PathVariable long songId) {
-//        return userService.addSong(username, songId);
-//    }
+
+}

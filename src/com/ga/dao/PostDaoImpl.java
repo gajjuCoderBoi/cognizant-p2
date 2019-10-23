@@ -61,21 +61,23 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public List<Post> listPostByUser(String username) {
+
+
         User user = userDao.getUserByUsername(username);
         return user.getPosts();
     }
 
     @Override
-    public Post addComment(Long postId, Comment comment) {
-        //Comment comment = null;
-        Post post = null;
+    public Comment addComment(Long postId, Comment comment, String username) {
+        Post post = getPostById(postId);
+        User user = userDao.getUserByUsername(username);
 
         Session session = sessionFactory.getCurrentSession();
 
         try {
             session.beginTransaction();
-            post = session.get(Post.class, postId);
             comment.setPost(post);
+            comment.setUser(user);
             session.save(comment);
             /*post = (Post)session.createQuery("FROM Post p WHERE p.postId = '" + postId + "'").uniqueResult();
             comment = session.get(Comment.class, commentId);
@@ -88,7 +90,7 @@ public class PostDaoImpl implements PostDao {
             session.close();
         }
 
-        return post;
+        return comment;
     }
 
     @Override
@@ -100,7 +102,6 @@ public class PostDaoImpl implements PostDao {
         try {
             session.beginTransaction();
             post = session.get(Post.class, postId);
-            //post = (Post) session.createQuery("From Post p WHERE p.post_id = '" + postId + "'").uniqueResult();
         } finally {
             session.close();
         }
