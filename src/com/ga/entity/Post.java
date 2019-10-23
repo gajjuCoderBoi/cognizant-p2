@@ -91,7 +91,6 @@ public class Post {
 
 //    TODO: list post by user
 
-//    TODO: add user to post
 //    TODO: add delete post
 //    TODO: add edit post
 

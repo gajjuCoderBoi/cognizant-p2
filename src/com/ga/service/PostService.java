@@ -11,6 +11,8 @@ public interface PostService {
 
         public List<Post> listPost();
 
+    public List<Post> listPostByUser();
+
     public Post addComment(Long postId, Comment comment);
 
 }

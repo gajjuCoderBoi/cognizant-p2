@@ -21,6 +21,7 @@ public class PostDaoImpl implements PostDao {
     @Autowired
     UserDao userDao;
 
+
     @Override
     public Post addPost(Post post, String username) {
         User user = userDao.getUserByUsername(username);
@@ -39,6 +40,7 @@ public class PostDaoImpl implements PostDao {
 
     }
 
+
     @Override
     public List<Post> listPost() {
         List<Post> posts = null;
@@ -54,6 +56,11 @@ public class PostDaoImpl implements PostDao {
         }
 
         return posts;
+    }
+
+    @Override
+    public List<Post> listPostByUser(String username) {
+        return userDao.listUserSongs(username);
     }
 
     @Override

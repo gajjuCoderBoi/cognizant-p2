@@ -23,6 +23,11 @@ public class PostController {
         return postService.listPost();
     }
 
+    @GetMapping("/{username}")
+    public Iterable<Post> listPostByUser(@PathVariable String username) {
+        return postService.listPost(username);
+    }
+
     @PostMapping({"/{postId}/comment/"})
     public Post addComment(@PathVariable Long postId, @RequestBody Comment comment) {
         return postService.addComment(postId, comment);

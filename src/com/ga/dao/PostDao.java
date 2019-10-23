@@ -12,6 +12,8 @@ public interface PostDao {
 
     public List<Post> listPost();
 
+    public List<Post> listPostByUser(String username);
+
     public Post addComment(Long postId, Comment commentId);
 
      public Post getPostById(Long postId);
