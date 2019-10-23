@@ -46,17 +46,6 @@ public class Comment {
     private User user;
 
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getusername(){
-        return user.getUsername();
-    }
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
@@ -66,6 +55,32 @@ public class Comment {
             inverseJoinColumns = @JoinColumn(name = "comment_id"))*/
     @JoinColumn(name = "post_id")
     private Post post;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getusername(){
+        return user != null ?
+                user.getUsername() :
+                "";
+    }
+
+    public String getposttitle(){
+        return post != null ?
+                post.getTitle() :
+                "";
+    }
+
+    public Long getpostId(){
+        return post != null ?
+                post.getPostId() :
+                -1L;
+    }
 
     public Post getPost() {
         return post;

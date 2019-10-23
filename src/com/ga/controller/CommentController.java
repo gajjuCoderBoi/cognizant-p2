@@ -17,7 +17,7 @@ public class CommentController {
                 return commentService.createComment(postId ,comment);
         }
 
-        @GetMapping("/")
+        @GetMapping("/user")
         public Iterable<Comment> listCommentsByUser(@RequestHeader("Authorization") String token) {
                 return commentService.listCommentsByUser(token);
         }
