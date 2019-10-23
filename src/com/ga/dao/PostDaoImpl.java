@@ -60,7 +60,8 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public List<Post> listPostByUser(String username) {
-        return userDao.listUserSongs(username);
+        User user = userDao.getUserByUsername(username);
+        return user.getPosts();
     }
 
     @Override
@@ -70,7 +71,7 @@ public class PostDaoImpl implements PostDao {
 
         Session session = sessionFactory.getCurrentSession();
 
-        try{
+        try {
             session.beginTransaction();
             post = session.get(Post.class, postId);
             comment.setPost(post);
@@ -95,10 +96,10 @@ public class PostDaoImpl implements PostDao {
 
         Session session = sessionFactory.getCurrentSession();
 
-        try{
+        try {
             session.beginTransaction();
 
-            post = (Post)session.createQuery("From Post p WHERE p.post_id = '" + postId + "'").uniqueResult();
+            post = (Post) session.createQuery("From Post p WHERE p.post_id = '" + postId + "'").uniqueResult();
         } finally {
             session.close();
         }

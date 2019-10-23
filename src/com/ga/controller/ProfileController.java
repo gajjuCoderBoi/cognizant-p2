@@ -32,7 +32,4 @@ public class ProfileController {
         return ResponseEntity.ok(userProfileService.updateProfile(userProfile, token));
     }
 
-
-
-
 }

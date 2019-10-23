@@ -9,9 +9,9 @@ public interface PostService {
 
     public Post addPost(Post post, String token);
 
-        public List<Post> listPost();
+    public List<Post> listPost();
 
-    public List<Post> listPostByUser();
+    public List<Post> listPostByUser(String token);
 
     public Post addComment(Long postId, Comment comment);
 

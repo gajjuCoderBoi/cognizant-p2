@@ -32,6 +32,12 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<Post> listPostByUser(String token) {
+        String username = jwtUtil.getUsernameFromToken(token);
+        return postDao.listPostByUser(username);
+    }
+
+    @Override
     public Post addComment(Long postId, Comment comment){
         return postDao.addComment(postId, comment);
     };

@@ -23,9 +23,9 @@ public class PostController {
         return postService.listPost();
     }
 
-    @GetMapping("/{username}")
-    public Iterable<Post> listPostByUser(@PathVariable String username) {
-        return postService.listPost(username);
+    @GetMapping("/")
+    public Iterable<Post> listPostByUser(@RequestHeader("Authorization") String token) {
+        return postService.listPostByUser(token);
     }
 
     @PostMapping({"/{postId}/comment/"})
