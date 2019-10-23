@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +36,7 @@ public class JwtUtil implements Serializable {
     }
 
     public String getUsernameFromToken(String token) {
-        if(token.startsWith("Bearer "))
-            token = token.substring(7);
+        token = extractToken(token);
         return getClaimFromToken(token, Claims::getSubject);
     }
 
@@ -47,6 +44,12 @@ public class JwtUtil implements Serializable {
         final Claims claims = getAllClaimsFromToken(token);
 
         return claimsResolver.apply(claims);
+    }
+
+    public static String extractToken(String token){
+        return token.startsWith("Bearer ") ?
+                token.substring(7) :
+                token;
     }
 
     // We'll again use the secret key to get the username from the token.

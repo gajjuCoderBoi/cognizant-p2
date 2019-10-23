@@ -1,5 +1,6 @@
 package com.ga.entity;
 
+import com.ga.config.JwtUtil;
 import javafx.util.Pair;
 
 public class JwtResponse {
@@ -9,15 +10,12 @@ public class JwtResponse {
     private String username;
 
     public JwtResponse(String jwt) {
-        if(jwt.startsWith("Bearer "))
-            jwt = jwt.substring(7);
-        this.jwt = jwt;
+        this.jwt = JwtUtil.extractToken(jwt);
     }
 
     public JwtResponse(Pair<String, String> signup) {
         username = signup.getKey();
-        if(signup.getValue().startsWith("Bearer "))
-            jwt = signup.getValue().substring(7);
+        jwt = JwtUtil.extractToken(signup.getValue());
     }
 
     public String getToken() {
