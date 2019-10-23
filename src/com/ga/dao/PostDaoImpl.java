@@ -3,6 +3,7 @@ package com.ga.dao;
 import com.ga.entity.Comment;
 import com.ga.entity.Post;
 import com.ga.entity.User;
+import javafx.geometry.Pos;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,21 +61,23 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public List<Post> listPostByUser(String username) {
+
+
         User user = userDao.getUserByUsername(username);
         return user.getPosts();
     }
 
     @Override
-    public Post addComment(Long postId, Comment comment) {
-        //Comment comment = null;
-        Post post = null;
+    public Comment addComment(Long postId, Comment comment, String username) {
+        Post post = getPostById(postId);
+        User user = userDao.getUserByUsername(username);
 
         Session session = sessionFactory.getCurrentSession();
 
         try {
             session.beginTransaction();
-            post = session.get(Post.class, postId);
             comment.setPost(post);
+            comment.setUser(user);
             session.save(comment);
             /*post = (Post)session.createQuery("FROM Post p WHERE p.postId = '" + postId + "'").uniqueResult();
             comment = session.get(Comment.class, commentId);
@@ -87,7 +90,7 @@ public class PostDaoImpl implements PostDao {
             session.close();
         }
 
-        return post;
+        return comment;
     }
 
     @Override
@@ -98,29 +101,50 @@ public class PostDaoImpl implements PostDao {
 
         try {
             session.beginTransaction();
-
-            post = (Post) session.createQuery("From Post p WHERE p.post_id = '" + postId + "'").uniqueResult();
+            post = session.get(Post.class, postId);
         } finally {
             session.close();
         }
         return post;
     }
 
+    @Override
+    public Post updatePost(Long postId, Post post, String username) {
+        User user = userDao.getUserByUsername(username);
+        Post post1 = getPostById(postId);
+        if (post1.getUser().getUsername().equals(username)) {
+            post1.setPostText(post.getPostText());
+        } else {
+            return null;
+        }
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.update(post1);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+        return post1;
+    }
+
+    @Override
+    public Long deletePost(Long postId, String username) {
+        User user = userDao.getUserByUsername(username);
+        Post post1 = getPostById(postId);
+        if (!(post1.getUser().getUsername().equals(username))) {
+            return null;
+        }
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.delete(post1);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+        return post1.getPostId();
+    }
+
 
 }
-
-
-//    @Override
-//    public Post getPostById(Long postId) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Post editPost(Post post) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Post deletePost(Long postId) {
-//        return null;
-//    }

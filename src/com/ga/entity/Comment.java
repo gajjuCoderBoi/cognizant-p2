@@ -46,6 +46,18 @@ public class Comment {
     private User user;
 
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getusername(){
+        return user.getUsername();
+    }
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})

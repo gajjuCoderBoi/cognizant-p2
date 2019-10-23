@@ -2,6 +2,7 @@ package com.ga.dao;
 
 import com.ga.entity.Comment;
 import com.ga.entity.Post;
+import com.ga.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class CommentDaoImpl implements CommentDao {
 
     @Autowired
     PostDao postDao;
+
+    @Autowired
+    UserDao userDao;
 
     @Autowired
     SessionFactory sessionFactory;
@@ -57,12 +61,22 @@ public class CommentDaoImpl implements CommentDao {
 
     }
 
+    @Override
+    public List<Comment> listCommentsByUser(String username) {
+        User user = userDao.getUserByUsername(username);
+        return user.getComments();
+    }
+
 }
 
 //    @Override
-//    public Comment getCommentById(Long commentId) {
-//        return null;
+//    public List<Post> listPostByUser(String username) {
+//
+//
+//        User user = userDao.getUserByUsername(username);
+//        return user.getPosts();
 //    }
+
 //
 //    @Override
 //    public Comment editComment(Comment comment) {

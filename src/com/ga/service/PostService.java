@@ -13,10 +13,10 @@ public interface PostService {
 
     public List<Post> listPostByUser(String token);
 
-    public Post addComment(Long postId, Comment comment);
+    public Comment addComment(Long postId, Comment comment, String token);
 
+    public Post updatePost(Long postId, Post post, String token);
+
+    public Long deletePost(Long postId, String token);
 }
 
-//    public Post getPostById(Long postId);
-//    public Post editPost(Post post);
-//    public Post deletePost(Long postId);
