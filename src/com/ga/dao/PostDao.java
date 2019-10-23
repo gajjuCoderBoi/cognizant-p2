@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PostDao {
 
-    public Post addPost(Post post);
+    public Post addPost(Post post, String username);
 
     public List<Post> listPost();
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PostService {
 
-    public Post addPost(Post post);
+    public Post addPost(Post post, String token);
 
         public List<Post> listPost();
 

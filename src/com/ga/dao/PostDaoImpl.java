@@ -2,6 +2,7 @@ package com.ga.dao;
 
 import com.ga.entity.Comment;
 import com.ga.entity.Post;
+import com.ga.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,14 @@ public class PostDaoImpl implements PostDao {
     @Autowired
     SessionFactory sessionFactory;
 
+    @Autowired
+    UserDao userDao;
+
     @Override
-    public Post addPost(Post post) {
-
+    public Post addPost(Post post, String username) {
+        User user = userDao.getUserByUsername(username);
         Session session = sessionFactory.getCurrentSession();
-
+        post.setUser(user);
         try {
             session.beginTransaction();
 

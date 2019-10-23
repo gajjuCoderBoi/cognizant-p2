@@ -13,9 +13,9 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @GetMapping
-    public Post addPost(@RequestBody Post post) {
-                return postService.addPost(post);
+    @PostMapping
+    public Post addPost(@RequestBody Post post, @RequestHeader("Authorization") String token) {
+                return postService.addPost(post, token);
     }
 
     @GetMapping("/list")

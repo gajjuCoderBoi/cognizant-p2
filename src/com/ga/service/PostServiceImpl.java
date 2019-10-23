@@ -1,5 +1,6 @@
 package com.ga.service;
 
+import com.ga.config.JwtUtil;
 import com.ga.dao.PostDao;
 import com.ga.entity.Comment;
 import com.ga.entity.Post;
@@ -14,9 +15,15 @@ public class PostServiceImpl implements PostService {
     @Autowired
     PostDao postDao;
 
+    @Autowired
+    JwtUtil jwtUtil;
+
     @Override
-    public Post addPost(Post post) {
-        return postDao.addPost(post);
+    public Post addPost(Post post, String token) {
+        token = JwtUtil.extractToken(token);
+        String username = jwtUtil.getUsernameFromToken(token);
+        return postDao.addPost(post, username);
+
     }
 
     @Override
