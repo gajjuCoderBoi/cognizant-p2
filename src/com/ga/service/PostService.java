@@ -10,6 +10,8 @@ public interface PostService {
 
         public List<Post> listPost();
 
+    public Post addComment(Long postId, String commentText);
+
 }
 
 //    public Post getPostById(Long postId);

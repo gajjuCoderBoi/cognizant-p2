@@ -1,5 +1,6 @@
 package com.ga.dao;
 
+import com.ga.entity.Comment;
 import com.ga.entity.Post;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -49,6 +50,46 @@ public class PostDaoImpl implements PostDao {
         }
 
         return posts;
+    }
+
+    @Override
+    public Post addComment(Long postId, String commentText) {
+        Comment comment = null;
+        Post post = null;
+
+        Session session = sessionFactory.getCurrentSession();
+
+        try{
+            session.beginTransaction();
+
+            post = (Post)session.createQuery("FROM Post p WHERE p.post_id = '" + postId + "'").uniqueResult();
+            comment = session.get(Comment.class, commentText);
+            post.addComments(comment);
+
+            session.update(post);
+
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+
+        return post;
+    }
+
+    @Override
+    public Post getPostById(Long postId) {
+        Post post = null;
+
+        Session session = sessionFactory.getCurrentSession();
+
+        try{
+            session.beginTransaction();
+
+            post = (Post)session.createQuery("From Post p WHERE p.post_id = '" + postId + "'").uniqueResult();
+        } finally {
+            session.close();
+        }
+        return post;
     }
 
 
