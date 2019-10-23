@@ -45,7 +45,7 @@ public class PostController {
 
     @DeleteMapping("/{postId}")
     public ResponseEntity<?> deletePost(@PathVariable Long postId, @RequestBody Post post, @RequestHeader("Authorization") String token){
-        Long post1 = postService.deletePost(postId, post, token);
+        Long post1 = postService.deletePost(postId, token);
         return post1!=null ?
                 ResponseEntity.ok(post1) :
                 new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
