@@ -37,7 +37,7 @@ public class Comment {
 
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,
+    @ManyToOne(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     /*@JoinTable(name = "user_comment",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -48,7 +48,7 @@ public class Comment {
 
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,
+    @ManyToOne(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     /*@JoinTable(name = "post_comment",
             joinColumns = {@JoinColumn(name = "post_id")},
@@ -64,13 +64,13 @@ public class Comment {
         this.user = user;
     }
 
-    public String getusername(){
+    public String getUsername(){
         return user != null ?
                 user.getUsername() :
                 "";
     }
 
-    public String getposttitle(){
+    public String getPostTitle(){
         return post != null ?
                 post.getTitle() :
                 "";
