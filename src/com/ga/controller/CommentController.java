@@ -16,9 +16,9 @@ public class CommentController {
         @Autowired
         CommentService commentService;
 
-        @GetMapping
-        public Comment addComment(Long postId, @RequestBody Comment comment) {
-                return commentService.addComment(postId ,comment);
+        @PostMapping
+        public Comment createComment(Long postId, @RequestBody Comment comment) {
+                return commentService.createComment(postId ,comment);
         }
 
         @GetMapping("/list")
