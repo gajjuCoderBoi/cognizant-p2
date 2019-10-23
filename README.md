@@ -70,40 +70,162 @@ Schemes: http
 ```
 #### Summary
 
-<table style="border: 1px solid #ddd;">
-  <tbody>
+<table style="
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: transparent;
+    display: table;
+">
+    <thead>
     <tr>
-      <th>Tables</th>
-      <th align="center">Are</th>
-      <th align="right">Cool</th>
+        <th>Path</th>
+        <th>Operation</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#path--attributes-computed">/user/signup</a>
+        </td>
     </tr>
     <tr>
-      <td>col 3 is</td>
-      <td align="center">right-aligned</td>
-      <td align="right">$1600</td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed-post">POST</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Create a User (Sign-up)</p>
+        </td>
     </tr>
     <tr>
-      <td>col 2 is</td>
-      <td align="center">centered</td>
-      <td align="right">$12</td>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#path--attributes-computed">/user/login</a>
+        </td>
     </tr>
     <tr>
-      <td>zebra stripes</td>
-      <td align="center">are neat</td>
-      <td align="right">$1</td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed-post">POST</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Create a login session.</p>
+        </td>
     </tr>
     <tr>
-      <td>
-        <ul>
-          <li>item1</li>
-          <li>item2</li>
-        </ul>
-      </td>
-      <td align="center">See the list</td>
-      <td align="right">from the first column</td>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#path--attributes-computed">/user/reset</a>
+        </td>
     </tr>
-  </tbody>
-</table>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed-post">PUT</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Reset User Password.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="3">
+            <a href="#path--attributes-computed--id-">/profile</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--delete">GET</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Retrieve the profile of the User.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--put">POST</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Create the profile of the User.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--put">PUT</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Update profile of the User.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
+            <a href="#path--attributes-computed--id-">/post</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--delete">GET</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Getting the Posts of the User (Token Auth is Required).</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--put">POST</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Create a Posts of the User (Token Auth is Required).</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#path--attributes-computed">/post/list</a>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed-post">GET</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Retrieve all the posts.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
+            <a href="#path--attributes-computed--id-">/post/{postId}</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--delete">PUT</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Updating a Post. (Token Auth is Required).</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--put">DELETE</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Deleting a Post. (Token Auth is Required).</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
+            <a href="#path--attributes-computed--id-">/post/{postId}/comment/</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--delete">GET</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Retrieve all the comments of the a Post. </p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--put">POST</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Create a comment on a Post. (Token Auth is Required)</p>
+        </td>
+    </tr>
+    </tbody>
+    </table>
 ## Creators
 
 **Marcus Sauceda**
