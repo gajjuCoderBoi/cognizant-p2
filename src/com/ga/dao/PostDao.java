@@ -19,12 +19,7 @@ public interface PostDao {
      public Post getPostById(Long postId);
 
 
+    public Post updatePost(Long postId, Post post, String username);
 
+    public Long deletePost(Long postId, String username);
 }
-
-//do this on user?
-//    public List<Post> getPostByUser();
-
-//    public Post getPostById(Long postId);
-//    public Post editPost(Post post);
-//    public Post deletePost(Long postId);

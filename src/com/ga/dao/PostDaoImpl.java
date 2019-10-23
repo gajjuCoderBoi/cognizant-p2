@@ -3,6 +3,7 @@ package com.ga.dao;
 import com.ga.entity.Comment;
 import com.ga.entity.Post;
 import com.ga.entity.User;
+import javafx.geometry.Pos;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,21 +108,43 @@ public class PostDaoImpl implements PostDao {
         return post;
     }
 
+    @Override
+    public Post updatePost(Long postId, Post post, String username) {
+        User user = userDao.getUserByUsername(username);
+        Post post1 = getPostById(postId);
+        if (post1.getUser().getUsername().equals(username)) {
+            post1.setPostText(post.getPostText());
+        } else {
+            return null;
+        }
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.update(post1);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+        return post1;
+    }
+
+    @Override
+    public Long deletePost(Long postId, String username) {
+        User user = userDao.getUserByUsername(username);
+        Post post1 = getPostById(postId);
+        if (!(post1.getUser().getUsername().equals(username))) {
+            return null;
+        }
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.delete(post1);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+        return post1.getPostId();
+    }
+
 
 }
-
-
-//    @Override
-//    public Post getPostById(Long postId) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Post editPost(Post post) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Post deletePost(Long postId) {
-//        return null;
-//    }
