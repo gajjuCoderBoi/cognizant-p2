@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +18,7 @@ import java.util.function.Function;
 @Component
 public class JwtUtil implements Serializable {
 
-    private static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+    private static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;
 
     @Value("${jwt.secret}")
     private String secret;
@@ -28,6 +30,8 @@ public class JwtUtil implements Serializable {
     }
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {
+        System.out.println(subject);
+        System.out.println(secret);
         return Jwts.builder().setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
@@ -53,7 +57,6 @@ public class JwtUtil implements Serializable {
     // Check both expiry and the username received from the token to validate it.
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
-
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 

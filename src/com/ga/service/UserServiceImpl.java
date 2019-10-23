@@ -62,8 +62,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User update(User user, Long userId) {
-        return userDao.update(user, userId);
+    public String update(User user, String token) {
+        userDao.update(user, jwtUtil.getUsernameFromToken(token));
+        return token;
     }
 
     @Override

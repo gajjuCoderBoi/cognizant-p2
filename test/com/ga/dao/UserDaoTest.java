@@ -86,7 +86,7 @@ public class UserDaoTest {
     public void update() {
         when(session.get(User.class,"kjh")).thenReturn(user2);
 
-        User user = userDao.update(user2, 1L);
+        User user = userDao.update(user2, user2.getUsername());
     }
 
     @Test

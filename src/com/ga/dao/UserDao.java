@@ -8,7 +8,7 @@ public interface UserDao {
     public List<User> listUsers();
     public User signup(User user);
     public User login(User user);
-    public User update(User user, Long userId);
+    public User update(User user, String username);
     public User delete(Long userId);
     public User getUserByUsername(String username);
 }

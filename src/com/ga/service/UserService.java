@@ -13,7 +13,7 @@ public interface UserService extends UserDetailsService {
 
     public Pair<String, String> login(User user);
 
-    public User update(User user, Long userId);
+    public String update(User user, String token);
 
     public User delete(Long userId);
 }

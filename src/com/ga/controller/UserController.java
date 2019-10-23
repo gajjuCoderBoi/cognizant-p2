@@ -33,6 +33,11 @@ public class UserController {
         return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 
+    @PutMapping("/reset")
+    public ResponseEntity<?> resetPassword(@RequestBody User user, @RequestHeader("Authorization") String token){
+        return ResponseEntity.ok(new JwtResponse(userService.update(user, token)));
+    }
+
     @PostMapping("/profile")
     public UserProfile createProfile(@RequestBody UserProfile userProfile, @RequestHeader("Authorization") String token){
         return userProfileService.createUserProfile(userProfile, jwtUtil.getUsernameFromToken(token));
