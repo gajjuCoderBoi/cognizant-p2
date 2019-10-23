@@ -20,11 +20,11 @@ public class UserProfileDaoImpl implements UserProfileDao {
     @Override
     public UserProfile createUserProfile(String username, UserProfile newProfile) {
         User user = userDao.getUserByUsername(username);
+        newProfile.setUser(user);
         Session session = sessionFactory.getCurrentSession();
         try{
             session.beginTransaction();
-            user.setProfile(newProfile);
-            session.save(user);
+            session.save(newProfile);
             session.getTransaction().commit();
         }finally {
             session.close();
@@ -45,7 +45,7 @@ public class UserProfileDaoImpl implements UserProfileDao {
         }finally {
             session.close();
         }
-        return null;
+        return newProfile;
     }
 
     @Override

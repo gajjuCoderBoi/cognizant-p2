@@ -16,17 +16,20 @@ public class UserProfileServiceImpl implements UserProfileService {
     private JwtUtil jwtUtil;
 
     @Override
-    public UserProfile createUserProfile(UserProfile newProfile, String username) {
+    public UserProfile createUserProfile(UserProfile newProfile, String token) {
+        String username = jwtUtil.getUsernameFromToken(token);
         return userProfileDao.createUserProfile(username, newProfile);
     }
 
     @Override
-    public UserProfile updateProfile(UserProfile newProfile, String username) {
+    public UserProfile updateProfile(UserProfile newProfile, String token) {
+        String username = jwtUtil.getUsernameFromToken(token);
         return userProfileDao.updateProfile(username, newProfile);
     }
 
     @Override
-    public UserProfile getUserProfile(String username) {
+    public UserProfile getUserProfile(String token) {
+        String username = jwtUtil.getUsernameFromToken(token);
         return userProfileDao.getUserProfile(username);
     }
 }
