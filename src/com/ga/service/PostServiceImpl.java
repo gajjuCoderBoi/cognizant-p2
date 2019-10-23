@@ -23,4 +23,8 @@ public class PostServiceImpl implements PostService {
         return postDao.listPost();
     }
 
+    public Post addComment(Long postId, String commentText){
+        return postDao.addComment(postId, commentText);
+    };
+
 }

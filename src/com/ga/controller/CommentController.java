@@ -17,14 +17,13 @@ public class CommentController {
         CommentService commentService;
 
         @GetMapping
-        public Comment addComment(@RequestBody Comment comment) {
-
-                return commentService.addComment(comment);
+        public Comment addComment(Long postId, @RequestBody Comment comment) {
+                return commentService.addComment(postId ,comment);
         }
 
         @GetMapping("/list")
         public Iterable<Comment> listComments() {
-        return commentService.listComments();
+                return commentService.listComments();
         }
 
 }

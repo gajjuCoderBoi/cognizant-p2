@@ -1,6 +1,7 @@
 package com.ga.dao;
 
 import com.ga.entity.Comment;
+import com.ga.entity.Post;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +13,24 @@ import java.util.List;
 public class CommentDaoImpl implements CommentDao {
 
     @Autowired
+    PostDao postDao;
+
+    @Autowired
     SessionFactory sessionFactory;
 
     @Override
-    public Comment addComment(Comment comment) {
+    public Comment addComment(Long postId , Comment comment) {
+            Post post = postDao.getPostById(postId);
+
             Session session = sessionFactory.getCurrentSession();
 
             try {
                 session.beginTransaction();
 
                 session.save(comment);
+                post.addComments(comment);
+                session.update(post);
+
                 session.getTransaction().commit();
             } finally {
                 session.close();

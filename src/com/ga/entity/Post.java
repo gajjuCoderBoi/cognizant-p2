@@ -3,6 +3,7 @@ package com.ga.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,6 +29,13 @@ public class Post {
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private User user;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    private List<Comment> comments;
+
+
 
     public User getUser() {
         return user;
@@ -59,6 +67,14 @@ public class Post {
 
     public void setPostText(String postText) {
         this.postText = postText;
+    }
+
+    public List<Comment> addComments(Comment comment) {
+        if(comments == null)
+            comments = new ArrayList<>();
+
+        comments.add(comment);
+        return comments;
     }
 
 }
