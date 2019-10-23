@@ -20,15 +20,11 @@ public class UserProfile {
     @Column(name = "address")
     private String address;
 
-    public User getUser() {
-        return user;
-    }
-
     public void setUser(User user) {
         this.user = user;
     }
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -45,10 +41,6 @@ public class UserProfile {
     }
 
     public UserProfile() {}
-
-    public Long getProfileId() {
-        return profileId;
-    }
 
     public void setProfileId(Long profileId) {
         this.profileId = profileId;
