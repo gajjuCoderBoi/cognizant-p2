@@ -30,13 +30,13 @@ public class CommentController {
                 return commentService.listComments();
         }
 
-       /* PutMapping("/{commentId}")
-        public ResponseEntity<?> updatePost(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
-                Post post1 = commenttService.updatePost(commentId, comment, token);
-                return post1!=null ?
-                        ResponseEntity.ok(post1) :
+       @PutMapping("/{commentId}")
+        public ResponseEntity<?> updatePost(@PathVariable Long commentId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
+                Comment comment1 = commentService.updateComment(commentId, comment, token);
+                return comment1!=null ?
+                        ResponseEntity.ok(comment1) :
                         new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }*/
+        }
 
         /*@DeleteMapping("/{commentId}")
         public ResponseEntity<?> deletePost(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
