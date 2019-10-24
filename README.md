@@ -18,6 +18,18 @@
    ·
 </p>
 
+## Table of contents
+
+- [User Stories](#user-stories)
+- [Timeline](#timeline)
+- [ERD](#erd)
+- [Diagrams](#class-diagrams)
+- [API](#api)
+- [API Responses](#responses)
+- [Objects](#objects)
+- [What's Included](#whats-included)
+- [Creators](#creators)
+
 ## User Stories
 
 [Pivotal Tracker (Back-End REST API)](https://www.pivotaltracker.com/n/projects/2407495)
