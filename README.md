@@ -146,7 +146,7 @@ Schemes: http
             <a href="#operation--attributes-computed--id--delete">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Retrieve the profile of the User.</p>
+            <p>Retrieve the profile of the User. (Auth Token Required)</p>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>ProfileController#getProfile</p>
@@ -157,7 +157,7 @@ Schemes: http
             <a href="#operation--attributes-computed--id--put">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Create the profile of the User.</p>
+            <p>Create the profile of the User. (Auth Token Required)</p>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>ProfileController#createProfile</p>
@@ -168,7 +168,7 @@ Schemes: http
             <a href="#operation--attributes-computed--id--put">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Update profile of the User.</p>
+            <p>Update profile of the User. (Auth Token Required)</p>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>ProfileController#updateProfile</p>
@@ -182,7 +182,7 @@ Schemes: http
             <a href="#operation--attributes-computed--id--delete">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Getting the Posts of the User (Token Auth is Required).</p>
+            <p>Getting the Posts of the User (Auth Token Required).</p>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>PostController#listPostByUser</p>
@@ -193,7 +193,7 @@ Schemes: http
             <a href="#operation--attributes-computed--id--put">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Create a Posts of the User (Token Auth is Required).</p>
+            <p>Create a Posts of the User (Auth Token Required).</p>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>PostController#addPost</p>
@@ -223,7 +223,7 @@ Schemes: http
             <a href="#operation--attributes-computed--id--delete">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Updating a Post. (Token Auth is Required).</p>
+            <p>Updating a Post. (Auth Token Required).</p>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>PostController#updatePost</p>
@@ -234,14 +234,14 @@ Schemes: http
             <a href="#operation--attributes-computed--id--put">DELETE</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Deleting a Post. (Token Auth is Required).</p>
+            <p>Deleting a Post. (Auth Token Required).</p>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>PostController#deletePost</p>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
             <a href="#path--attributes-computed--id-">/post/{postId}/comment/</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
@@ -255,14 +255,70 @@ Schemes: http
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--put">POST</a>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
+            <a href="#path--attributes-computed--id-">/comment</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>Create a comment on a Post. (Token Auth is Required)</p>
+            <a href="#operation--attributes-computed--id--delete">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <p>PostController#addComment</p>
+            <p>Retrieve all the comments. </p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>CommentController#listComments</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
+            <a href="#path--attributes-computed--id-">/comment/list</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--delete">GET</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Retrieve all the comments of a User. (Auth Token Required). </p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>CommentController#listCommentsByUser</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
+            <a href="#path--attributes-computed--id-">/comment/{postId}</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--delete">GET</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Creating a comment on a post. (Auth Token Required). </p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>CommentController#addComment</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
+            <a href="#path--attributes-computed--id-">/comment/{commentId}</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--delete">PUT</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Updating a comment. (Auth Token Required).</p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#updateComment</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <a href="#operation--attributes-computed--id--put">DELETE</a>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>Deleting a Comment. (Auth Token Required).</p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#deleteComment</p>
         </td>
     </tr>
     </tbody>

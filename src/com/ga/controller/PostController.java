@@ -35,10 +35,11 @@ public class PostController {
         return postService.listCommentsByPost(postId);
     }
 
-    @PostMapping({"/{postId}/comment/"})
+    // Depreciated Route.
+    /*@PostMapping({"/{postId}/comment/"})
     public Comment addComment(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader("Authorization") String token) {
         return postService.addComment(postId, comment, token);
-    }
+    }*/
 
 
     @PutMapping("/{postId}")
