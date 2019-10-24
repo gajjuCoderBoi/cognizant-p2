@@ -20,6 +20,8 @@ public class CommentController {
                 return commentService.createComment(postId ,comment);
         }
 
+//        does not seem to work now
+
         @GetMapping("/")
         public Iterable<Comment> listCommentsByUser(@RequestHeader("Authorization") String token) {
                 return commentService.listCommentsByUser(token);
@@ -31,20 +33,20 @@ public class CommentController {
         }
 
        @PutMapping("/{commentId}")
-        public ResponseEntity<?> updatePost(@PathVariable Long commentId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
+        public ResponseEntity<?> updateComment(@PathVariable Long commentId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
                 Comment comment1 = commentService.updateComment(commentId, comment, token);
                 return comment1!=null ?
                         ResponseEntity.ok(comment1) :
                         new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
-        /*@DeleteMapping("/{commentId}")
-        public ResponseEntity<?> deletePost(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
-                Long post1 = commentService.deletePost(commentId, token);
-                return post1!=null ?
-                        ResponseEntity.ok(post1) :
+        @DeleteMapping("/{commentId}")
+        public ResponseEntity<?> deleteComment(@PathVariable Long commentId, @RequestHeader("Authorization") String token){
+                Long comment1 = commentService.deleteComment(commentId, token);
+                return comment1!=null ?
+                        ResponseEntity.ok(comment1) :
                         new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }*/
+        }
 
 }
 

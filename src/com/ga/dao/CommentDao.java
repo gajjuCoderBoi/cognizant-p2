@@ -17,9 +17,7 @@ public interface CommentDao {
 
         public Comment updateComment(Long commentId, Comment comment, String username);
 
+        public Long deleteComment(Long commentId, String username);
+
 
 }
-
-//        public Comment getCommentById(Long commentId);
-//        public Comment editComment(Comment comment);
-//        public Comment deleteComment(Long commentId);
