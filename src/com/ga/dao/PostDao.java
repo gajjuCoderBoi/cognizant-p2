@@ -18,7 +18,6 @@ public interface PostDao {
 
      public Post getPostById(Long postId);
 
-
     public Post updatePost(Long postId, Post post, String username);
 
     public Long deletePost(Long postId, String username);

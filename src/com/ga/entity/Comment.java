@@ -37,7 +37,7 @@ public class Comment {
 
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,
+    @ManyToOne(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     /*@JoinTable(name = "user_comment",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -45,6 +45,16 @@ public class Comment {
     @JoinColumn(name = "user_id")
     private User user;
 
+
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    /*@JoinTable(name = "post_comment",
+            joinColumns = {@JoinColumn(name = "post_id")},
+            inverseJoinColumns = @JoinColumn(name = "comment_id"))*/
+    @JoinColumn(name = "post_id")
+    private Post post;
 
     public User getUser() {
         return user;
@@ -54,18 +64,21 @@ public class Comment {
         this.user = user;
     }
 
-    public String getusername(){
-        return user.getUsername();
+    public String getUsername(){
+        return user != null ?
+                user.getUsername() :
+                "";
     }
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    /*@JoinTable(name = "post_comment",
-            joinColumns = {@JoinColumn(name = "post_id")},
-            inverseJoinColumns = @JoinColumn(name = "comment_id"))*/
-    @JoinColumn(name = "post_id")
-    private Post post;
+    public String getPostTitle(){
+        return post != null ?
+                post.getTitle() :
+                "";
+    }
+
+    public Long getPostId(Long postId){
+        return postId;
+    }
 
     public Post getPost() {
         return post;

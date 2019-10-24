@@ -11,6 +11,9 @@ public interface CommentDao {
 
         public List<Comment> listCommentsByUser(String username);
 
+        public List<Comment> listCommentsByPost(Long postId);
+
+
 }
 
 //        public Comment getCommentById(Long commentId);

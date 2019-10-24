@@ -67,15 +67,14 @@ public class CommentDaoImpl implements CommentDao {
         return user.getComments();
     }
 
+    @Override
+    public List<Comment> listCommentsByPost(Long postId) {
+        Post post = postDao.getPostById(postId);
+        return post.getComments();
+    }
+
 }
 
-//    @Override
-//    public List<Post> listPostByUser(String username) {
-//
-//
-//        User user = userDao.getUserByUsername(username);
-//        return user.getPosts();
-//    }
 
 //
 //    @Override
