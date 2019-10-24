@@ -29,6 +29,7 @@
 - [Objects](#objects)
 - [What's Included](#whats-included)
 - [Creators](#developers)
+[test](#post-commentpostid)
 
 
 ## User Stories
@@ -105,7 +106,7 @@ Schemes: http
     <tbody>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">/user/signup</a>
+            <a href="#summary">/user/signup</a>
         </td>
     </tr>
     <tr>
@@ -121,12 +122,12 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">/user/login</a>
+            <a href="#summary">/user/login</a>
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">POST</a>
+            <a href="#post-userlogin">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a login session.</p>
@@ -137,12 +138,12 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">/user/reset</a>
+            <a href="#summary">/user/reset</a>
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">PUT</a>
+            <a href="#put-userreset">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Reset User Password.</p>
@@ -153,10 +154,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="3">
-            <a href="#">/profile</a>
+            <a href="#summary">/profile</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">GET</a>
+            <a href="#get-profile">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve the profile of the User. (Auth Token Required)</p>
@@ -167,7 +168,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">POST</a>
+            <a href="#post-profile">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create the profile of the User. (Auth Token Required)</p>
@@ -178,7 +179,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">PUT</a>
+            <a href="#put-profile">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Update profile of the User. (Auth Token Required)</p>
@@ -189,10 +190,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
-            <a href="#">/post</a>
+            <a href="#summary">/post</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">GET</a>
+            <a href="#get-post">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Getting the Posts of the User (Auth Token Required).</p>
@@ -203,7 +204,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">POST</a>
+            <a href="#post-post">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a Posts of the User (Auth Token Required).</p>
@@ -214,12 +215,12 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">/post/list</a>
+            <a href="#summary">/post/list</a>
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">GET</a>
+            <a href="#get-postlist">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the posts.</p>
@@ -233,7 +234,7 @@ Schemes: http
             <a href="#">/post/{postId}</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">PUT</a>
+            <a href="#put-postid">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Updating a Post. (Auth Token Required).</p>
@@ -244,7 +245,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">DELETE</a>
+            <a href="#delete-postid">DELETE</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Deleting a Post. (Auth Token Required).</p>
@@ -258,7 +259,7 @@ Schemes: http
             <a href="#">/post/{postId}/comment/</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">GET</a>
+            <a href="#get-postpostidcomment">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the comments of the a Post. </p>
@@ -269,10 +270,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
-            <a href="#">/comment</a>
+            <a href="#summary">/comment</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">GET</a>
+            <a href="#get-comment">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the comments. </p>
@@ -283,10 +284,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
-            <a href="#">/comment/list</a>
+            <a href="#summary">/comment/list</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">GET</a>
+            <a href="#get-commentlist">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the comments of a User. (Auth Token Required). </p>
@@ -300,7 +301,7 @@ Schemes: http
             <a href="#">/comment/{postId}</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">GET</a>
+            <a href="#post-commentpostid">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Creating a comment on a post. (Auth Token Required). </p>
@@ -311,10 +312,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
-            <a href="#">/comment/{commentId}</a>
+            <a href="#summary">/comment/{commentId}</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">PUT</a>
+            <a href="#put-commentcommentid">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Updating a comment. (Auth Token Required).</p>
@@ -325,7 +326,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#">DELETE</a>
+            <a href="#delete-commentcommentid">DELETE</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Deleting a Comment. (Auth Token Required).</p>
@@ -390,7 +391,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
 {
     "username": "myUser",
     "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkyMjcsImlhdCI6MTU3MTkzMjgyN30.Z9fh-cPXaVLAD9_I3k2w9JYn69lup6PrjtuxRIbUCkwUBHmzsIzhKKaO0sF8hkFJM1tWN61KrkQLl3fYhV9ZZQ"
@@ -403,7 +404,7 @@ Authorization
     token: Bearer Token
 ```
 Request Body 
-```text
+```json5
 {
 	"password" : "123"
 }
@@ -413,7 +414,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
     {
         "username": "myUser",
         "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkyMjcsImlhdCI6MTU3MTkzMjgyN30.Z9fh-cPXaVLAD9_I3k2w9JYn69lup6PrjtuxRIbUCkwUBHmzsIzhKKaO0sF8hkFJM1tWN61KrkQLl3fYhV9ZZQ"
@@ -430,7 +431,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
 {
     "email": "myfake@email.com",
     "mobile": "123-123-1234",
@@ -449,7 +450,7 @@ Response Header
 ```
 
 Request Body 
-```text
+```json5
 {
     	"address": "123 Fake Street",
     	"email": "myfake@email.com",
@@ -457,7 +458,7 @@ Request Body
 }
 ```
 Response Body 
-```text
+```json5
 {
 	"address": "123 Fake Street",
 	"email": "myfake@email.com",
@@ -476,7 +477,7 @@ Response Header
 ```
 
 Request Body 
-```text
+```json5
 {
 	"address": "456 Fake Street",
 	"email": "myfake@editedemail.com",
@@ -484,7 +485,7 @@ Request Body
 }
 ```
 Response Body 
-```text
+```json5
 {
     "email": "myfake@editedemail.com",
     "mobile": "456-123-1234",
@@ -499,7 +500,7 @@ Response Header
 ```
 
 Response Body 
-```text
+```json5
 [
     {
         "postId": 1,
@@ -544,7 +545,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
 [
     {
         "postId": 6,
@@ -565,14 +566,14 @@ Response Header
     Status: 200 OK
 ```
 Request Body 
-```text
+```json5
 {
 	"title" : "myUser Post Title",
 	"postText" : "myUser Post Text"
 }
 ```
 Response Body 
-```text
+```json5
 {
     "postId": 6,
     "title": "myUser Post Title",
@@ -591,13 +592,13 @@ Response Header
 ```
 
 Request Body 
-```text
+```json5
 {
 	"postText" : "my edited post text for might"
 }
 ```
 Response Body 
-```text
+```json5
 {
     "postId": 5,
     "title": "my post title",
@@ -615,7 +616,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
 5
 ```
 
@@ -625,7 +626,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
 [
     {
         "commentId": 1,
@@ -661,13 +662,13 @@ Response Header
     Status: 200 OK
 ```
 Request Body 
-```text
+```json5
 {
 	"commentText" : "Might comment on post"
 }
 ```
 Response Body 
-```text
+```json5
 {
     "commentId": 5,
     "commentText": "Might comment on post",
@@ -676,7 +677,77 @@ Response Body
     "postid": "1"
 }
 ```
+#### GET /comment
+Response Header
+```text
+    Status: 200 OK
+```
+```
+Response Body 
+```json5
+[
+    {
+        "commentId": 5,
+        "commentText": "Might comment on post",
+        "username": "might",
+        "postTitle": "1 title for my post",
+        "postid": "1"
+    },
+    {
+        "commentId": 6,
+        "commentText": "Lorem ipsum",
+        "username": "might",
+        "postTitle": "1 title for my post",
+        "postid": "1"
+    },
+]
+```
+#### GET /comment/list
+Authorization
+```text
+    token: Bearer Token
+```
 
+Response Header
+```text
+    Status: 200 OK
+```
+Response Body 
+```json5
+{
+    "commentId": 1,
+    "commentText": "Some edited text by might",
+    "username": "might",
+    "postTitle": "1 title for my post",
+    "postid": "1"
+}
+```
+#### POST /comment/{postId}
+Authorization
+```text
+    token: Bearer Token
+```
+
+Response Header
+```text
+    Status: 200 OK
+```
+Request Body 
+```json5
+{
+	"commentText" : "Some edited text by might"
+}
+```
+Response Body 
+```json5
+{
+    "commentId": 1,
+    "commentText": "Some edited text by might",
+    "username": "might",
+    "postTitle": "1 title for my post",
+    "postid": "1"
+}
+```
 #### PUT /comment/{commentId}
 Authorization
 ```text
@@ -688,14 +759,14 @@ Response Header
     Status: 200 OK
 ```
 Request Body 
-```text
+```json5
 {
 	"commentText" : "Some edited text by might"
 }
 ```
 Response Body 
-```text
-
+```json5
+{
     "commentId": 1,
     "commentText": "Some edited text by might",
     "username": "might",
@@ -714,7 +785,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
 1
 ```
 
