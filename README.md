@@ -29,7 +29,6 @@
 - [Objects](#objects)
 - [What's Included](#whats-included)
 - [Creators](#developers)
-[test](#post-commentpostid)
 
 
 ## User Stories
@@ -682,7 +681,7 @@ Response Header
 ```text
     Status: 200 OK
 ```
-```
+
 Response Body 
 ```json5
 [
