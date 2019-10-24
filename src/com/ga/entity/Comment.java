@@ -76,6 +76,13 @@ public class Comment {
                 "";
     }
 
+    public String getpostid(){
+        return post != null ?
+                String.valueOf(post.getPostId()) :
+                "";
+    }
+
+
     public Long getPostId(Long postId){
         return postId;
     }

@@ -33,7 +33,7 @@ public class  Post {
 
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER,
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "post",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Comment> comments;
 

@@ -40,21 +40,6 @@ public class PostController {
         return postService.addComment(postId, comment, token);
     }
 
-//    @PutMapping("/{commentId}")
-//        public ResponseEntity<?> updateComment(@PathVariable Long commentId, @RequestBody Comment Comment, @RequestHeader("Authorization") String token){
-//                Post post1 = postService.updatePost(postId, post, token);
-//                return post1!=null ?
-//                        ResponseEntity.ok(post1) :
-//                        new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//        }
-//
-//        @DeleteMapping("/{commentId}")
-//        public ResponseEntity<?> deletePost(@PathVariable Long postId, @RequestBody Post post, @RequestHeader("Authorization") String token){
-//                Long post1 = postService.deletePost(postId, token);
-//                return post1!=null ?
-//                        ResponseEntity.ok(post1) :
-//                        new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//        }
 
     @PutMapping("/{postId}")
     public ResponseEntity<?> updatePost(@PathVariable Long postId, @RequestBody Post post, @RequestHeader("Authorization") String token){

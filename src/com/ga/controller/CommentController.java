@@ -30,6 +30,21 @@ public class CommentController {
                 return commentService.listComments();
         }
 
+       /* PutMapping("/{commentId}")
+        public ResponseEntity<?> updatePost(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
+                Post post1 = commenttService.updatePost(commentId, comment, token);
+                return post1!=null ?
+                        ResponseEntity.ok(post1) :
+                        new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }*/
+
+        /*@DeleteMapping("/{commentId}")
+        public ResponseEntity<?> deletePost(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader("Authorization") String token){
+                Long post1 = commentService.deletePost(commentId, token);
+                return post1!=null ?
+                        ResponseEntity.ok(post1) :
+                        new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }*/
 
 }
 
