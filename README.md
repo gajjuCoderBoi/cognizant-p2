@@ -28,7 +28,8 @@
 - [API Responses](#responses)
 - [Objects](#objects)
 - [What's Included](#whats-included)
-- [Creators](#creators)
+- [Creators](#developers)
+
 
 ## User Stories
 
@@ -104,12 +105,12 @@ Schemes: http
     <tbody>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#path--attributes-computed">/user/signup</a>
+            <a href="#">/user/signup</a>
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed-post">POST</a>
+            <a href="#post-usersignup">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a User (Sign-up)</p>
@@ -120,12 +121,12 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#path--attributes-computed">/user/login</a>
+            <a href="#">/user/login</a>
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed-post">POST</a>
+            <a href="#">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a login session.</p>
@@ -136,12 +137,12 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#path--attributes-computed">/user/reset</a>
+            <a href="#">/user/reset</a>
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed-post">PUT</a>
+            <a href="#">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Reset User Password.</p>
@@ -152,10 +153,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="3">
-            <a href="#path--attributes-computed--id-">/profile</a>
+            <a href="#">/profile</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">GET</a>
+            <a href="#">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve the profile of the User. (Auth Token Required)</p>
@@ -166,7 +167,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--put">POST</a>
+            <a href="#">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create the profile of the User. (Auth Token Required)</p>
@@ -177,7 +178,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--put">PUT</a>
+            <a href="#">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Update profile of the User. (Auth Token Required)</p>
@@ -188,10 +189,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
-            <a href="#path--attributes-computed--id-">/post</a>
+            <a href="#">/post</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">GET</a>
+            <a href="#">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Getting the Posts of the User (Auth Token Required).</p>
@@ -202,7 +203,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--put">POST</a>
+            <a href="#">POST</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a Posts of the User (Auth Token Required).</p>
@@ -213,12 +214,12 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#path--attributes-computed">/post/list</a>
+            <a href="#">/post/list</a>
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed-post">GET</a>
+            <a href="#">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the posts.</p>
@@ -229,10 +230,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
-            <a href="#path--attributes-computed--id-">/post/{postId}</a>
+            <a href="#">/post/{postId}</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">PUT</a>
+            <a href="#">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Updating a Post. (Auth Token Required).</p>
@@ -243,7 +244,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--put">DELETE</a>
+            <a href="#">DELETE</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Deleting a Post. (Auth Token Required).</p>
@@ -254,10 +255,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
-            <a href="#path--attributes-computed--id-">/post/{postId}/comment/</a>
+            <a href="#">/post/{postId}/comment/</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">GET</a>
+            <a href="#">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the comments of the a Post. </p>
@@ -268,10 +269,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
-            <a href="#path--attributes-computed--id-">/comment</a>
+            <a href="#">/comment</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">GET</a>
+            <a href="#">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the comments. </p>
@@ -282,10 +283,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
-            <a href="#path--attributes-computed--id-">/comment/list</a>
+            <a href="#">/comment/list</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">GET</a>
+            <a href="#">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the comments of a User. (Auth Token Required). </p>
@@ -296,10 +297,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="1">
-            <a href="#path--attributes-computed--id-">/comment/{postId}</a>
+            <a href="#">/comment/{postId}</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">GET</a>
+            <a href="#">GET</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Creating a comment on a post. (Auth Token Required). </p>
@@ -310,10 +311,10 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
-            <a href="#path--attributes-computed--id-">/comment/{commentId}</a>
+            <a href="#">/comment/{commentId}</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--delete">PUT</a>
+            <a href="#">PUT</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Updating a comment. (Auth Token Required).</p>
@@ -324,7 +325,7 @@ Schemes: http
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
-            <a href="#operation--attributes-computed--id--put">DELETE</a>
+            <a href="#">DELETE</a>
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Deleting a Comment. (Auth Token Required).</p>
@@ -354,7 +355,7 @@ Basic HTTP authorization with Bearer Token.
 
 #### POST /user/signup
 Request Body 
-```text
+```json5
 {
 	"username" : "myUser",
 	"password" : "myPassword9"
@@ -365,7 +366,7 @@ Response Header
     Status: 200 OK
 ```
 Response Body 
-```text
+```json5
 {
     "username": "myUser",
     "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkxMzAsImlhdCI6MTU3MTkzMjczMH0.3j4YpkvdiAkLBpW5PI1aBYZw1Uhf97gm67BwcNFFN0_pWIoZgrMt9xga1ximg1Xt-fMq5-v2ifE8B8sWTMP0EA"
@@ -378,7 +379,7 @@ Authorization
     token: Bearer Token
 ```
 Request Body 
-```text
+```json5
     {
     	"username" : "myUser",
     	"password" : "myPassword9"
@@ -859,8 +860,24 @@ cognizant-p2/
 └── test
     └── com
         └── ga
-            └── dao
-                └── UserDaoTest.java
+            ├── controller
+            │   ├── CommentControllerTest.java
+            │   ├── PostControllerTest.java
+            │   ├── ProfileControllerTest.java
+            │   └── UserControllerTest.java
+            ├── dao
+            │   ├── CommentDaoTest.java
+            │   ├── PostDaoTest.java
+            │   ├── UserDaoTest.java
+            │   ├── UserProfileDaoTest.java
+            │   └── UserRoleDaoTest.java
+            └── service
+                ├── CommentServiceTest.java
+                ├── PostServiceTest.java
+                ├── UserProfileServiceTest.java
+                ├── UserRoleServiceTest.java
+                └── UserServiceTest.java
+
 
 
 ```
