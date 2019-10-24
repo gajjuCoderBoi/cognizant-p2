@@ -93,6 +93,7 @@ public class PostDaoImpl implements PostDao {
         return comment;
     }
 
+
     @Override
     public Post getPostById(Long postId) {
         Post post = null;

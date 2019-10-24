@@ -76,10 +76,8 @@ public class Comment {
                 "";
     }
 
-    public Long getpostId(){
-        return post != null ?
-                post.getPostId() :
-                -1L;
+    public Long getPostId(Long postId){
+        return postId;
     }
 
     public Post getPost() {

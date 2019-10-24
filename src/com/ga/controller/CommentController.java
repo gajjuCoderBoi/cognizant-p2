@@ -1,8 +1,11 @@
 package com.ga.controller;
 
 import com.ga.entity.Comment;
+import com.ga.entity.Post;
 import com.ga.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -26,6 +29,7 @@ public class CommentController {
         public Iterable<Comment> listComments() {
                 return commentService.listComments();
         }
+
 
 }
 
