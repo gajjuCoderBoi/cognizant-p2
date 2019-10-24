@@ -35,10 +35,16 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.listComments();
     }
 
+    @Override
+    public Comment updateComment(Long commentId, Comment comment, String token) {
+        String username = jwtUtil.getUsernameFromToken(token);
+        return commentDao.updateComment(commentId, comment, username);
+    }
+
 }
 
 //    @Override
-//    public List<Post> listPostByUser(String token) {
+//    public Post updatePost(Long postId, Post post, String token) {
 //        String username = jwtUtil.getUsernameFromToken(token);
-//        return postDao.listPostByUser(username);
+//        return postDao.updatePost(postId, post, username);
 //    }

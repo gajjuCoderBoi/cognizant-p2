@@ -13,6 +13,8 @@ public interface CommentService {
 
     public List<Comment> listComments();
 
+    public Comment updateComment(Long commentId, Comment comment, String token);
+
 }
 
 //    public Comment getCommentById(Long commentId);

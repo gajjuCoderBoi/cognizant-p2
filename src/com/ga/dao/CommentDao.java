@@ -13,6 +13,10 @@ public interface CommentDao {
 
         public List<Comment> listCommentsByPost(Long postId);
 
+        public Comment getCommentById(Long commentId);
+
+        public Comment updateComment(Long commentId, Comment comment, String username);
+
 
 }
 

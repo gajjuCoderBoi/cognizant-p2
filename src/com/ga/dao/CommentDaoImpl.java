@@ -73,16 +73,39 @@ public class CommentDaoImpl implements CommentDao {
         return post.getComments();
     }
 
+    @Override
+    public Comment getCommentById(Long commentId) {
+        Comment comment = null;
+
+        Session session = sessionFactory.getCurrentSession();
+
+        try {
+            session.beginTransaction();
+            comment = session.get(Comment.class, commentId);
+        } finally {
+            session.close();
+        }
+        return comment;
+    }
+
+    @Override
+    public Comment updateComment(Long commentId, Comment comment, String username) {
+        User user = userDao.getUserByUsername(username);
+        Comment comment1 = getCommentById(commentId);
+        if(comment1.getUser().getUsername().equals(username)) {
+            comment1.setCommentText(comment.getCommentText());
+        } else {
+            return null;
+        }
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.update(comment1);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+        return comment1;
+        }
+
 }
-
-
-//
-//    @Override
-//    public Comment editComment(Comment comment) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Comment deleteComment(Long commentId) {
-//        return null;
-//    }
