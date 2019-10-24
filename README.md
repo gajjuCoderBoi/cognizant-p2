@@ -287,15 +287,21 @@ Basic HTTP authorization with Bearer Token.
 #### POST /user/signup
 Request Body 
 ```text
-
+{
+	"username" : "myUser",
+	"password" : "myPassword9"
+}
 ```
 Response Header
 ```text
-    Status: 
+    Status: 200 OK
 ```
 Response Body 
 ```text
-
+{
+    "username": "myUser",
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkxMzAsImlhdCI6MTU3MTkzMjczMH0.3j4YpkvdiAkLBpW5PI1aBYZw1Uhf97gm67BwcNFFN0_pWIoZgrMt9xga1ximg1Xt-fMq5-v2ifE8B8sWTMP0EA"
+}
 ```
 
 #### POST /user/login
@@ -305,15 +311,21 @@ Authorization
 ```
 Request Body 
 ```text
-
+    {
+    	"username" : "myUser",
+    	"password" : "myPassword9"
+    }
 ```
 Response Header
 ```text
-    Status: 
+    Status: 200 OK
 ```
 Response Body 
 ```text
-
+{
+    "username": "myUser",
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkyMjcsImlhdCI6MTU3MTkzMjgyN30.Z9fh-cPXaVLAD9_I3k2w9JYn69lup6PrjtuxRIbUCkwUBHmzsIzhKKaO0sF8hkFJM1tWN61KrkQLl3fYhV9ZZQ"
+}
 ```
 
 #### PUT /user/reset
@@ -323,15 +335,20 @@ Authorization
 ```
 Request Body 
 ```text
-
+{
+	"password" : "123"
+}
 ```
 Response Header
 ```text
-    Status: 
+    Status: 200 OK
 ```
 Response Body 
 ```text
-
+    {
+        "username": "myUser",
+        "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteVVzZXIiLCJleHAiOjE1NzIwMTkyMjcsImlhdCI6MTU3MTkzMjgyN30.Z9fh-cPXaVLAD9_I3k2w9JYn69lup6PrjtuxRIbUCkwUBHmzsIzhKKaO0sF8hkFJM1tWN61KrkQLl3fYhV9ZZQ"
+    }
 ```
 
 #### GET /profile
@@ -341,11 +358,15 @@ Authorization
 ```
 Response Header
 ```text
-    Status: 
+    Status: 200 OK
 ```
 Response Body 
 ```text
-
+{
+    "email": "myfake@email.com",
+    "mobile": "123-123-1234",
+    "address": "123 Fake Street"
+}
 ```
 
 #### POST /profile
@@ -355,11 +376,24 @@ Authorization
 ```
 Response Header
 ```text
-    Status: 
+    Status: 200 OK
+```
+
+Request Body 
+```text
+{
+    	"address": "123 Fake Street",
+    	"email": "myfake@email.com",
+    	"mobile": "123-123-1234"
+}
 ```
 Response Body 
 ```text
-
+{
+	"address": "123 Fake Street",
+	"email": "myfake@email.com",
+	"mobile": "123-123-1234"
+}
 ```
 
 #### PUT /profile
@@ -369,12 +403,253 @@ Authorization
 ```
 Response Header
 ```text
-    Status: 
+    Status: 200 OK
+```
+
+Request Body 
+```text
+{
+	"address": "456 Fake Street",
+	"email": "myfake@editedemail.com",
+	"mobile": "456-123-1234"
+}
+```
+Response Body 
+```text
+{
+    "email": "myfake@editedemail.com",
+    "mobile": "456-123-1234",
+    "address": "456 Fake Street"
+}
+```
+
+#### GET /post/list
+Response Header
+```text
+    Status: 200 OK
+```
+
+Response Body 
+```text
+[
+    {
+        "postId": 1,
+        "title": "1 title for my post",
+        "postText": "1 My super important post.",
+        "userName": "might"
+    },
+    {
+        "postId": 2,
+        "title": "1 title for my post",
+        "postText": "1 My super important post.",
+        "userName": "fright"
+    },
+    {
+        "postId": 3,
+        "title": "1 title for my post",
+        "postText": "1 My super important post.",
+        "userName": "fright"
+    },
+    {
+        "postId": 5,
+        "title": "my post title",
+        "postText": "my post text",
+        "userName": "might"
+    },
+    {
+        "postId": 4,
+        "title": "1 title for my post",
+        "postText": "my edited post text",
+        "userName": "fright"
+    }
+]
+```
+
+#### GET /post/
+Authorization
+```text
+    token: Bearer Token
+```
+Response Header
+```text
+    Status: 200 OK
+```
+Response Body 
+```text
+[
+    {
+        "postId": 6,
+        "title": "myUser Post Title",
+        "postText": "myUser Post Text",
+        "userName": "myUser"
+    }
+]
+```
+
+#### POST /post
+Authorization
+```text
+    token: Bearer Token
+```
+Response Header
+```text
+    Status: 200 OK
+```
+Request Body 
+```text
+{
+	"title" : "myUser Post Title",
+	"postText" : "myUser Post Text"
+}
+```
+Response Body 
+```text
+{
+    "postId": 6,
+    "title": "myUser Post Title",
+    "postText": "myUser Post Text",
+    "userName": "myUser"
+}
+```
+#### PUT /{postId}
+Authorization
+```text
+    token: Bearer Token
+```
+Response Header
+```text
+    Status: 200 OK
+```
+
+Request Body 
+```text
+{
+	"postText" : "my edited post text for might"
+}
+```
+Response Body 
+```text
+{
+    "postId": 5,
+    "title": "my post title",
+    "postText": "my edited post text for might",
+    "userName": "might"
+}
+```
+#### DELETE /{postId}
+Authorization
+```text
+    token: Bearer Token
+```
+Response Header
+```text
+    Status: 200 OK
+```
+Response Body 
+```text
+5
+```
+
+#### GET /post/{postId}/comment/
+Response Header
+```text
+    Status: 200 OK
+```
+Response Body 
+```text
+[
+    {
+        "commentId": 1,
+        "commentText": "Super Post Comment",
+        "username": "might",
+        "postTitle": "1 title for my post",
+        "postid": "1"
+    },
+    {
+        "commentId": 4,
+        "commentText": "Super Fright Post Comment",
+        "username": "fright",
+        "postTitle": "1 title for my post",
+        "postid": "1"
+    },
+    {
+        "commentId": 2,
+        "commentText": "Super Re-Edited Comment",
+        "username": "fright",
+        "postTitle": "1 title for my post",
+        "postid": "1"
+    }
+]
+```
+#### POST /post/{postId}/comment/
+Authorization
+```text
+    token: Bearer Token
+```
+
+Response Header
+```text
+    Status: 200 OK
+```
+Request Body 
+```text
+{
+	"commentText" : "Might comment on post"
+}
+```
+Response Body 
+```text
+{
+    "commentId": 5,
+    "commentText": "Might comment on post",
+    "username": "might",
+    "postTitle": "1 title for my post",
+    "postid": "1"
+}
+```
+
+#### PUT /comment/{commentId}
+Authorization
+```text
+    token: Bearer Token
+```
+
+Response Header
+```text
+    Status: 200 OK
+```
+Request Body 
+```text
+{
+	"commentText" : "Some edited text by might"
+}
 ```
 Response Body 
 ```text
 
+    "commentId": 1,
+    "commentText": "Some edited text by might",
+    "username": "might",
+    "postTitle": "1 title for my post",
+    "postid": "1"
+}
 ```
+#### DELETE /comment/{commentId}
+Authorization
+```text
+    token: Bearer Token
+```
+
+Response Header
+```text
+    Status: 200 OK
+```
+Response Body 
+```text
+1
+```
+
+
     
 ### Objects
 

@@ -108,4 +108,23 @@ public class CommentDaoImpl implements CommentDao {
         return comment1;
         }
 
+    @Override
+    public Long deleteComment(Long commentId, String username) {
+        User user = userDao.getUserByUsername(username);
+        Comment comment1 = getCommentById(commentId);
+        if (!(comment1.getUser().getUsername().equals(username))) {
+            return null;
+        }
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.delete(comment1);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+
+        return comment1.getCommentId();
+    }
+
 }
