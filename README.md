@@ -79,12 +79,13 @@ Schemes: http
     border-spacing: 0;
     background-color: transparent;
     display: table;
-" align="center">
+">
     <thead>
     <tr>
         <th>Path</th>
         <th>Operation</th>
         <th>Description</th>
+        <th>Controller#Method</th>
     </tr>
     </thead>
     <tbody>
@@ -100,6 +101,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a User (Sign-up)</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>UserController#signup</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2" style="border: 1px solid #ddd;padding: 5px;">
@@ -112,6 +116,9 @@ Schemes: http
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a login session.</p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>UserController#login</p>
         </td>
     </tr>
     <tr>
@@ -126,6 +133,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Reset User Password.</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>UserController#reset</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="3">
@@ -137,6 +147,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve the profile of the User.</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>ProfileController#getProfile</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
@@ -145,6 +158,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create the profile of the User.</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>ProfileController#createProfile</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
@@ -152,6 +168,9 @@ Schemes: http
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Update profile of the User.</p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>ProfileController#updateProfile</p>
         </td>
     </tr>
     <tr>
@@ -164,6 +183,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Getting the Posts of the User (Token Auth is Required).</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#listPostByUser</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
@@ -171,6 +193,9 @@ Schemes: http
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a Posts of the User (Token Auth is Required).</p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#addPost</p>
         </td>
     </tr>
     <tr>
@@ -185,6 +210,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the posts.</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#listPost</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;" rowspan="2">
@@ -196,6 +224,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Updating a Post. (Token Auth is Required).</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#updatePost</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
@@ -203,6 +234,9 @@ Schemes: http
         </td>
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Deleting a Post. (Token Auth is Required).</p>
+        </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#deletePost</p>
         </td>
     </tr>
     <tr>
@@ -215,6 +249,9 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Retrieve all the comments of the a Post. </p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#listCommentsByPost</p>
+        </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ddd;padding: 5px;">
@@ -223,9 +260,12 @@ Schemes: http
         <td style="border: 1px solid #ddd;padding: 5px;">
             <p>Create a comment on a Post. (Token Auth is Required)</p>
         </td>
+        <td style="border: 1px solid #ddd;padding: 5px;">
+            <p>PostController#addComment</p>
+        </td>
     </tr>
     </tbody>
-    </table>
+</table>
     
 ### Security
 

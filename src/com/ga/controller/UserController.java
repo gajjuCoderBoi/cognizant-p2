@@ -38,7 +38,7 @@ public class UserController {
         return ResponseEntity.ok(new JwtResponse(userService.update(user, token)));
     }
 
-    @PostMapping("/profile")
+    /*@PostMapping("/profile")
     public UserProfile createProfile(@RequestBody UserProfile userProfile, @RequestHeader("Authorization") String token){
         return userProfileService.createUserProfile(userProfile, jwtUtil.getUsernameFromToken(token));
     }
@@ -46,6 +46,6 @@ public class UserController {
     @PutMapping("/profile")
     public UserProfile updateProfile(@RequestBody UserProfile userProfile, @RequestHeader("Authorization") String token){
         return userProfileService.updateProfile(userProfile, jwtUtil.getUsernameFromToken(token));
-    }
+    }*/
 
 }
