@@ -339,10 +339,6 @@ Authorization
 ```text
     token: Bearer Token
 ```
-Authorization
-```text
-    token: Bearer Token
-```
 Response Header
 ```text
     Status: 
@@ -357,10 +353,6 @@ Authorization
 ```text
     token: Bearer Token
 ```
-Authorization
-```text
-    token: Bearer Token
-```
 Response Header
 ```text
     Status: 
@@ -371,10 +363,6 @@ Response Body
 ```
 
 #### PUT /profile
-Authorization
-```text
-    token: Bearer Token
-```
 Authorization
 ```text
     token: Bearer Token
