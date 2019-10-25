@@ -50,7 +50,7 @@ public class UserProfileServiceTest {
                 "111-111-1111",
                 "123 some address");
 */
-        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("123");
+//        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("123");
         when(userProfileDao.createUserProfile(anyString(), any())).thenReturn(userProfile);
 
         UserProfile userProfile1 = userProfileDao.createUserProfile("someusername",userProfile);
@@ -70,7 +70,7 @@ public class UserProfileServiceTest {
 
     @Test
     public void getUserProfile_UserProfile_Success() {
-        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("123");
+//        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("123");
         when(userProfileDao.getUserProfile(anyString())).thenReturn(userProfile);
 
         UserProfile userProfile1 = userProfileDao.getUserProfile("someusername");

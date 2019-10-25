@@ -83,7 +83,7 @@ public class PostServiceTest {
                 1l,
                 "Dummy Post Title",
                 "Dummy Post Text");
-        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
+//        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
         when(postDao.addPost(any(), anyString())).thenReturn(dummyPost);
 
         Post actual = postDao.addPost(dummyPost, "username");
@@ -101,7 +101,7 @@ public class PostServiceTest {
 
     @Test
     public void listPostByUser_List_Success() {
-        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
+//        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
         when(postDao.listPostByUser(anyString())).thenReturn(dummyPostList);
 
         List<Post> actual = postDao.listPostByUser("username");
