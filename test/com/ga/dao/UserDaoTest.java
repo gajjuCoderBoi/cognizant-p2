@@ -1,7 +1,5 @@
 package com.ga.dao;
 
-import com.ga.entity.Comment;
-import com.ga.entity.Post;
 import com.ga.entity.User;
 import com.ga.entity.UserRole;
 import org.hibernate.Session;
