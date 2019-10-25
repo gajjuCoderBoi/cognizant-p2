@@ -40,6 +40,13 @@ public class UserProfile {
         this.address = profile.address;
     }
 
+    public UserProfile(String email, String mobile, String address, User user) {
+        this.email = email;
+        this.mobile = mobile;
+        this.address = address;
+        this.user = user;
+    }
+
     public UserProfile() {}
 
     public void setProfileId(Long profileId) {
