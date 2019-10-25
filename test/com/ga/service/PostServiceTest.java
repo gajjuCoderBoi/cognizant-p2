@@ -131,7 +131,7 @@ public class PostServiceTest {
     }
 
     @Test
-    public void updatePost() {
+    public void updatePost_Post_Success() {
         Post expected = new Post(
                 1l,
                 "Dummy Post Title",
@@ -144,7 +144,7 @@ public class PostServiceTest {
     }
 
     @Test
-    public void deletePost() {
+    public void deletePost_Long_Success() {
         Post expected = new Post(
                 1l,
                 "Dummy Post Title",
