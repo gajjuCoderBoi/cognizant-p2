@@ -59,7 +59,7 @@ public class UserDaoTest {
 
         when(sessionFactory.getCurrentSession()).thenReturn(session);
         when(session.getTransaction()).thenReturn(transaction);
-
+        when(session.createQuery(anyString())).thenReturn(query);
     }
 
     @Test
@@ -112,12 +112,12 @@ public class UserDaoTest {
     }
 
     private void update_User_Success() {
-//        when(userDao.getUserByUsername(anyString())).thenReturn("batman");
-//        User savedUser = userDao.update(user2, user2.getUsername());
+        when(query.uniqueResult()).thenReturn(user2);
+        user2.setPassword("bat");
+        User savedUser = userDao.update(user2, user2.getUsername());
 //        savedUser.setPassword(savedUser.getPassword());
-//        assertNotNull("Test returned null object, expect non-null", savedUser);
-//        assertEquals(savedUser, user2);
-        //TODO
+        assertNotNull("Test returned null object, expect non-null", savedUser);
+        assertEquals(savedUser.getPassword(), user2.getPassword());
     }
 
     private void listUsers_User_Success(){
