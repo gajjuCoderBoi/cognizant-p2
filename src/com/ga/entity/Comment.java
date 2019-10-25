@@ -26,6 +26,10 @@ public class Comment {
         this.commentId = commentId;
     }
 
+    public Comment(String s) {
+        this.commentText = s;
+    }
+
     public Long getCommentId() {
         return commentId;
     }

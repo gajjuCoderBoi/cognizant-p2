@@ -47,7 +47,7 @@ public class CommentControllerTest {
     private PostService postService;
 
     @Before
-    public void init(){
+    public void init() {
         mockMvc = MockMvcBuilders.standaloneSetup(commentController).build();
         sampleComment = new Comment(
                 1L,
@@ -113,7 +113,7 @@ public class CommentControllerTest {
     }
 
     @Test
-    public void listComments() throws Exception {
+    public void listComments_Comment_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/comment");
 
@@ -133,7 +133,7 @@ public class CommentControllerTest {
     }
 
     @Test
-    public void updatePost() throws Exception {
+    public void updateComment_Comment_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .put("/comment/1")
                 .header("Authorization", "Bearer 123")
@@ -155,5 +155,17 @@ public class CommentControllerTest {
                         "    \"postid\": \"1\"\n" +
                         "}"))
                 .andReturn();
+    }
+
+    @Test
+    public void deleteComment_Comment_Success() throws Exception {
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .delete("/comment/1")
+                .header("Authorization", "Bearer 123");
+
+        when(commentService.deleteComment(anyLong(), anyString())).thenReturn(1L);
+
+        mockMvc.perform(requestBuilder)
+                .andExpect(status().isOk());
     }
 }

@@ -50,7 +50,7 @@ public class PostServiceImpl implements PostService {
     public Comment addComment(Long postId, Comment comment, String token){
         String username = jwtUtil.getUsernameFromToken(token);
         return postDao.addComment(postId, comment, username);
-    };
+    }
 
     @Override
     public Post updatePost(Long postId, Post post, String token) {
