@@ -17,7 +17,15 @@ public class Comment {
     @Column
     private String commentText;
 
-    public Comment() {}
+    public Comment() {
+    }
+
+    public Comment(Long commentId, String commentText, User user, Post post) {
+        this.commentText = commentText;
+        this.user = user;
+        this.post = post;
+        this.commentId = commentId;
+    }
 
     public Long getCommentId() {
         return commentId;
@@ -46,7 +54,6 @@ public class Comment {
     private User user;
 
 
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
@@ -64,26 +71,26 @@ public class Comment {
         this.user = user;
     }
 
-    public String getUsername(){
+    public String getUsername() {
         return user != null ?
                 user.getUsername() :
                 "";
     }
 
-    public String getPostTitle(){
+    public String getPostTitle() {
         return post != null ?
                 post.getTitle() :
                 "";
     }
 
-    public String getpostid(){
+    public String getpostid() {
         return post != null ?
                 String.valueOf(post.getPostId()) :
                 "";
     }
 
 
-    public Long getPostId(Long postId){
+    public Long getPostId(Long postId) {
         return postId;
     }
 

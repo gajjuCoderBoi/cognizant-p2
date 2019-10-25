@@ -22,6 +22,14 @@ public class  Post {
     @Column
     private String postText;
 
+    public Post(Long postId,String title, String postText, User user, List<Comment> comments) {
+        this.title = title;
+        this.postText = postText;
+        this.user = user;
+        this.comments = comments;
+        this.postId = postId;
+    }
+
     public Post() {}
 
     @JsonIgnore
@@ -88,10 +96,5 @@ public class  Post {
         comments.add(comment);
         return comments;
     }
-
-//    TODO: list post by user
-
-//    TODO: add delete post
-//    TODO: add edit post
 
 }
