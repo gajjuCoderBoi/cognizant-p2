@@ -713,13 +713,15 @@ Response Header
 ```
 Response Body 
 ```json5
-{
-    "commentId": 1,
-    "commentText": "Some edited text by might",
-    "username": "might",
-    "postTitle": "1 title for my post",
-    "postid": "1"
-}
+[
+    {
+        "commentId": 1,
+        "commentText": "Some edited text by might",
+        "username": "might",
+        "postTitle": "1 title for my post",
+        "postid": "1"
+    }
+]
 ```
 #### POST /comment/{postId}
 Authorization
