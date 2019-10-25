@@ -66,13 +66,29 @@ public class CommentDaoTest {
 
         when(sessionFactory.getCurrentSession()).thenReturn(session);
         when(session.getTransaction()).thenReturn(transaction);
-
     }
 
     @Test
     public void createComment() {
         //TODO
     }
+
+//    @Test
+//    public void createComment_Comment_Success() {
+//        when(post.getPostId(anyLong())).thenReturn(post.getPostId(anyLong()));
+//
+//        Comment savedComment = postDao.addComment(postId,comment, userDao.getUserByUsername());
+//
+//    }
+
+//    public void signup_User_Success() {
+//        when(userRoleDao.getRole(anyString())).thenReturn(userRole);
+//
+//        User savedUser = userDao.signup(user);
+//
+//        assertNotNull("Test returned null object, expected non-null", savedUser);
+//        assertEquals(savedUser, user);
+//    }
 
     @Test
     public void listComments() {

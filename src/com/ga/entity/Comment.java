@@ -84,7 +84,7 @@ public class Comment {
 
     public String getpostid() {
         return post != null ?
-                String.valueOf(post.getPostId()) :
+                String.valueOf(post.getPostId(anyLong())) :
                 "";
     }
 

@@ -143,7 +143,7 @@ public class PostDaoImpl implements PostDao {
         } finally {
             session.close();
         }
-        return post1.getPostId();
+        return post1.getPostId(anyLong());
     }
 
 

@@ -61,9 +61,8 @@ public class  Post {
         this.user = user;
     }
 
+
     public long getPostId() {
-        return postId;
-    }
 
     public void setPostId(long postId) {
         this.postId = postId;
