@@ -3,7 +3,6 @@ package com.ga.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "comments")
@@ -85,7 +84,7 @@ public class Comment {
 
     public String getpostid() {
         return post != null ?
-                String.valueOf(post.getPostId()) :
+                String.valueOf(post.getPostId(anyLong())) :
                 "";
     }
 
