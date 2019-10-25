@@ -45,6 +45,12 @@ public class  Post {
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Comment> comments;
 
+    public Post(long l, String dummy_post_title, String dummy_post_text) {
+        setPostId(l);
+        setTitle(dummy_post_title);
+        setPostText(dummy_post_text);
+    }
+
     public List<Comment> getComments() {
         return comments;
     }
@@ -63,6 +69,8 @@ public class  Post {
 
 
     public long getPostId() {
+        return postId;
+    }
 
     public void setPostId(long postId) {
         this.postId = postId;

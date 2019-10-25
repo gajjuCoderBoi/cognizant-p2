@@ -26,6 +26,10 @@ public class Comment {
         this.commentId = commentId;
     }
 
+    public Comment(String s) {
+        this.commentText = s;
+    }
+
     public Long getCommentId() {
         return commentId;
     }
@@ -84,7 +88,7 @@ public class Comment {
 
     public String getpostid() {
         return post != null ?
-                String.valueOf(post.getPostId(anyLong())) :
+                String.valueOf(post.getPostId()) :
                 "";
     }
 
