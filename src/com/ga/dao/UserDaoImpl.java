@@ -98,6 +98,7 @@ public class UserDaoImpl implements UserDao {
         } finally {
             session.close();
         }
+        System.out.println(deletedUser);
         return deletedUser;
     }
 

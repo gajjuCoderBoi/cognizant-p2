@@ -66,7 +66,11 @@ public class CommentDaoTest {
 
         when(sessionFactory.getCurrentSession()).thenReturn(session);
         when(session.getTransaction()).thenReturn(transaction);
+    }
 
+    @Test
+    public void createComment() {
+        //TODO
     }
 
 //    @Test
