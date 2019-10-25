@@ -61,11 +61,11 @@ public class  Post {
         this.user = user;
     }
 
-    public Long getPostId() {
+    public long getPostId(long l) {
         return postId;
     }
 
-    public void setPostId(Long postId) {
+    public void setPostId(long postId) {
         this.postId = postId;
     }
 

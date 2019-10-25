@@ -49,7 +49,7 @@ Application Goals from User Stories are:
 1. Requirement Analysis
     * Monday(Oct 21, 2019) - user stories
         
-        We give our user stories points, so that we could priority our development steps 
+        We give our user stories points, so that we could prioritize our development steps. 
  
             https://www.pivotaltracker.com/n/projects/2407495
     
@@ -58,7 +58,24 @@ Application Goals from User Stories are:
             Pair mapped ERD to include 5 tables and various foreign keys to connect the tables.
             
          [ERD](#erd)
+         
+    * Tuesday(Oct 22, 2019) - User, comment, and post routes mapped.
+    
+            Added user, comment, and post creation functionality.
+            
+    * Wednesday(Oct 23, 2019) - User security functionality added.
+    
+            Added User/JWT functionality and connection between comment and post.
         
+    * Thursday(Oct 24, 2019) - Tested all route functionality and began testing.
+    
+            All route functionality is working. Recorded results to ReadMe file.
+            
+    * Friday(Oct 25, 2019) - Tested all route functionality.
+    
+            *-*-*-*-*-*-*
+        
+      
 
   
 
