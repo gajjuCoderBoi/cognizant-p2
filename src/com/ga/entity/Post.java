@@ -53,7 +53,7 @@ public class  Post {
         this.user = user;
     }
 
-    public long getPostId(long l) {
+    public long getPostId() {
         return postId;
     }
 

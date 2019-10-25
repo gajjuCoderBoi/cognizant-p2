@@ -51,13 +51,10 @@ public class UserDaoTest {
 
     @Before
     public void initDummyUser() {
-        userRole.setRoleId(1L);
-        userRole.setName("ROLE_ADMIN");
-
         user2.setUserId(1L);
         user2.setUsername("batman");
         user2.setPassword("robin");
-        //user2.setUserRole(userRole);
+
 
 
         when(sessionFactory.getCurrentSession()).thenReturn(session);
@@ -67,7 +64,7 @@ public class UserDaoTest {
 
     @Test
     public void listUsers() {
-
+        listUsers_User_Success();
     }
 
     @Test
@@ -78,40 +75,52 @@ public class UserDaoTest {
 
     @Test
     public void login() {
-        singin_User_Success();
+        signin_User_Success();
     }
 
 
     @Test
     public void update() {
-        when(session.get(User.class,"kjh")).thenReturn(user2);
-
-        User user = userDao.update(user2, user2.getUsername());
+        update_User_Success();
     }
 
     @Test
     public void delete() {
+        when(session.get(User.class, "123")).thenReturn(user2);
+        User user = userDao.delete(user2.getUserId());
     }
 
     @Test
     public void getUserByUsername() {
+
     }
 
 
-
     private void signup_User_Success() {
-        when(userRoleDao.getRoleByName(anyString())).thenReturn(userRole);
-
         User savedUser = userDao.signup(user2);
 
         assertNotNull("Test returned null object, expected non-null", savedUser);
         assertEquals(savedUser, user2);
     }
 
-    private void singin_User_Success() {
+    private void signin_User_Success() {
         when(session.createQuery(anyString()).getSingleResult()).thenReturn(user2);
         User savedUser = userDao.login(user2);
+        assertNotNull("Test returned null object, expected non-null", savedUser);
         assertEquals(savedUser, user2);
 
     }
+
+    private void update_User_Success() {
+//        when(userDao.getUserByUsername(anyString())).thenReturn("batman");
+//        User savedUser = userDao.update(user2, user2.getUsername());
+//        savedUser.setPassword(savedUser.getPassword());
+//        assertNotNull("Test returned null object, expect non-null", savedUser);
+//        assertEquals(savedUser, user2);
+        //TODO
+    }
+
+    private void listUsers_User_Success(){
+        //TODO
+    };
 }
