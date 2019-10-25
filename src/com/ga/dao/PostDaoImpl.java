@@ -3,7 +3,6 @@ package com.ga.dao;
 import com.ga.entity.Comment;
 import com.ga.entity.Post;
 import com.ga.entity.User;
-import javafx.geometry.Pos;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +94,7 @@ public class PostDaoImpl implements PostDao {
 
 
     @Override
-    public Post getPostById(Long postId) {
+    public Post getPostById(long postId) {
         Post post = null;
 
         Session session = sessionFactory.getCurrentSession();
@@ -144,7 +143,7 @@ public class PostDaoImpl implements PostDao {
         } finally {
             session.close();
         }
-        return post1.getPostId();
+        return post1.getPostId(anyLong());
     }
 
 
