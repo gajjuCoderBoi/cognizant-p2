@@ -2,10 +2,7 @@ package com.ga.service;
 
 import com.ga.config.JwtUtil;
 import com.ga.dao.CommentDao;
-import com.ga.dao.UserProfileDao;
-import com.ga.dao.UserProfileDaoImpl;
 import com.ga.entity.Comment;
-import com.ga.entity.UserProfile;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -108,7 +105,7 @@ public class CommentServiceTest {
     public void deleteComment_Long_Success() {
         Long expected = 1l;
 
-        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
+//        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
         when(commentDao.deleteComment(anyLong(), anyString())).thenReturn(comment.getCommentId());
 
         Long actual = commentDao.deleteComment(comment.getCommentId(), "username");
