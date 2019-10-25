@@ -1,7 +1,6 @@
 package com.ga.service;
 
 import com.ga.config.JwtUtil;
-import com.ga.dao.UserProfileDao;
 import com.ga.dao.UserProfileDaoImpl;
 import com.ga.entity.UserProfile;
 import org.junit.Before;
@@ -12,7 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -26,7 +25,7 @@ public class UserProfileServiceTest {
     @Mock
     private UserProfileDaoImpl userProfileDao;
 
-    @Mock
+    @InjectMocks
     private UserProfileServiceImpl userProfileService;
 
     @Mock
@@ -61,7 +60,6 @@ public class UserProfileServiceTest {
 
     @Test
     public void updateProfile_UserProfile_Success() {
-        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("123");
         when(userProfileDao.updateProfile(anyString(), any())).thenReturn(userProfile);
 
         UserProfile userProfile1 = userProfileDao.updateProfile("someusername",userProfile);
