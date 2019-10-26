@@ -94,7 +94,7 @@ public class PostDaoImpl implements PostDao {
 
 
     @Override
-    public Post getPostById(long postId) {
+    public Post getPostById(Long postId) {
         Post post = null;
 
         Session session = sessionFactory.getCurrentSession();

@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface CommentService {
 
-    public Comment createComment(Long postId , Comment comment);
 
     public List<Comment> listCommentsByUser(String token);
 

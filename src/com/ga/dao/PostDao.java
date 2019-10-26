@@ -16,7 +16,7 @@ public interface PostDao {
 
     public Comment addComment(Long postId, Comment comment, String username);
 
-     public Post getPostById(long postId);
+     public Post getPostById(Long postId);
 
     public Post updatePost(Long postId, Post post, String username);
 

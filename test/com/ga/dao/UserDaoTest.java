@@ -116,7 +116,8 @@ public class UserDaoTest {
     private void listUsers_User_Success(){
         when(userDao.listUsers()).thenReturn(sampleUserList);
         List<User> users = userDao.listUsers();
-        assertNotNull("Test returned null object, expected non-null", users);
+
+
         assertEquals(users, sampleUserList);
     };
 

@@ -20,11 +20,6 @@ public class CommentServiceImpl implements CommentService {
 
 
     @Override
-    public Comment createComment(Long postId , Comment comment) {
-        return commentDao.createComment(postId, comment);
-    }
-
-    @Override
     public List<Comment> listCommentsByUser(String token) {
         String username = jwtUtil.getUsernameFromToken(token);
         return commentDao.listCommentsByUser(username);
