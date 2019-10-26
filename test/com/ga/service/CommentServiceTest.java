@@ -53,14 +53,14 @@ public class CommentServiceTest {
     }
 
 
-    @Test
-    public void createComment_Comment_Success() {
-        when(commentDao.createComment(anyLong(), any())).thenReturn(comment);
-
-        Comment comment = commentDao.createComment(1l, this.comment);
-
-        assertNotNull(comment);
-    }
+//    @Test
+//    public void createComment_Comment_Success() {
+//        when(commentDao.createComment(anyLong(), any())).thenReturn(comment);
+//
+//        Comment comment = commentDao.createComment(1l, this.comment);
+//
+//        assertNotNull(comment);
+//    }
 
     @Test
     public void listCommentsByUser_List_Success() {

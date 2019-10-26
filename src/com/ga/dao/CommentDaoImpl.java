@@ -22,26 +22,7 @@ public class CommentDaoImpl implements CommentDao {
     @Autowired
     SessionFactory sessionFactory;
 
-    @Override
-    public Comment createComment(Long postId , Comment comment) {
-            Post post = postDao.getPostById(postId);
 
-            Session session = sessionFactory.getCurrentSession();
-
-            try {
-                session.beginTransaction();
-
-                session.save(comment);
-                post.addComments(comment);
-                session.update(post);
-
-                session.getTransaction().commit();
-            } finally {
-                session.close();
-            }
-
-            return comment;
-        }
 
         @Override
     public List<Comment> listComments() {
