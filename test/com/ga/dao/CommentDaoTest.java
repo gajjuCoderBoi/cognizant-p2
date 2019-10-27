@@ -160,22 +160,34 @@ public class CommentDaoTest {
         assertEquals(savedComment.getCommentId(), comment2.getCommentId());
     };
 
+    //    null pointer exception on line 174, in commentDaoTest
+//    commentDaoImpl Line 76
+//if(comment1.getUser().getUsername().equals(username)) {
+//        comment1.setCommentText(comment.getCommentText());
+//    } else {
+//        return null;
+//    }
+
     private void updateComment_Comment_Success(){
-//        when(userDao.getUserByUsername(anyString())).thenReturn(user2);
-//        when(comment.getCommentId()).thenReturn(comment2.getCommentId());
-//        when(comment.getUser().getUsername().equals(anyString())).thenReturn(true);
-//        when(comment.getCommentText()).thenReturn(comment2.getCommentText());
-//        Comment savedComment = commentDao.updateComment(1L, comment2, "batman");
-//        assertNotNull("Test returned null object, expected non-null", savedComment);
-//        assertEquals(savedComment.getCommentId(), comment2.getCommentId());
-        //TODO
+        when(userDao.getUserByUsername(anyString())).thenReturn(user2);
+        when(comment.getCommentId()).thenReturn(comment2.getCommentId());
+        when(commentDao.updateComment(comment2.getCommentId(), comment2, user2.getUsername())).thenReturn(comment2);
+        Comment savedComment = commentDao.updateComment(1L, comment2, "batman");
+        assertNotNull("Test returned null object, expected non-null", savedComment);
+        assertEquals(savedComment.getCommentId(), comment2.getCommentId());
     };
 
 
+    // null pointer exception on line 184, in commentDaoTest
+    
     private void deleteComment_Comment_Success(){
-        when(userDao.getUserByUsername(anyString())).thenReturn(user2);
+        when(userDao.getUserByUsername(any())).thenReturn(user2 );
         when(comment.getCommentId()).thenReturn(comment2.getCommentId());
-        when(session.delete(anyLong()))
+        when(comment2.getUser().getUsername().equals(anyString())).thenReturn(true);
+        when(commentDao.deleteComment(1L, "batman")).thenReturn(comment2.getCommentId());
+        Long savedCommentId = commentDao.deleteComment(1L, user2.getUsername());
+        assertNotNull("Test returned null object, expected non-null", savedCommentId);
+        assertEquals(savedCommentId, comment2.getCommentId());
     };
 
 }
