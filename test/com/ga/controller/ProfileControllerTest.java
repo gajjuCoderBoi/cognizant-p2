@@ -94,8 +94,7 @@ public class ProfileControllerTest {
                 .andReturn();
     }
 
-    @Test
-    public void updateProfile_Profile_Success() throws Exception {
+    private void updateProfile_Profile_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .put("/profile")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -119,5 +118,20 @@ public class ProfileControllerTest {
                         "}"))
                 .andReturn();
 
+    }
+
+    @Test
+    public void getProfile() throws Exception {
+        getProfile_Profile_Success();
+    }
+
+    @Test
+    public void createProfile() throws Exception {
+        createProfile_Profile_Success();
+    }
+
+    @Test
+    public void updateProfile() throws Exception {
+        updateProfile_Profile_Success();
     }
 }

@@ -77,8 +77,7 @@ public class PostServiceTest {
 
     }
 
-    @Test
-    public void addPost_Post_Success() {
+    private void addPost_Post_Success() {
         Post expected = new Post(
                 1l,
                 "Dummy Post Title",
@@ -92,15 +91,13 @@ public class PostServiceTest {
 
     }
 
-    @Test
-    public void listPost_List_Success() {
+    private void listPost_List_Success() {
         when(postDao.listPost()).thenReturn(dummyPostList);
 
         assertNotNull(postDao.listPost());
     }
 
-    @Test
-    public void listPostByUser_List_Success() {
+    private void listPostByUser_List_Success() {
 //        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
         when(postDao.listPostByUser(anyString())).thenReturn(dummyPostList);
 
@@ -110,8 +107,7 @@ public class PostServiceTest {
 
     }
 
-    @Test
-    public void listCommentsByPost_List_SUccess() {
+    private void listCommentsByPost_List_SUccess() {
         when(commentDao.listCommentsByPost(anyLong())).thenReturn(dummyCommentList);
 
         List<Comment> actual = commentDao.listCommentsByPost(1l);
@@ -119,8 +115,7 @@ public class PostServiceTest {
         assertNotNull(actual);
     }
 
-    @Test
-    public void addComment_Comment_Success() {
+    private void addComment_Comment_Success() {
         Comment expected = new Comment("comment 1");
         when(postDao.addComment(anyLong(), any(), anyString())).thenReturn(dummyComment);
 
@@ -130,8 +125,7 @@ public class PostServiceTest {
 
     }
 
-    @Test
-    public void updatePost_Post_Success() {
+    private void updatePost_Post_Success() {
         Post expected = new Post(
                 1l,
                 "Dummy Post Title",
@@ -143,8 +137,7 @@ public class PostServiceTest {
         assertEquals(expected.getPostText(), actual.getPostText());
     }
 
-    @Test
-    public void deletePost_Long_Success() {
+    private void deletePost_Long_Success() {
         Post expected = new Post(
                 1l,
                 "Dummy Post Title",
@@ -155,5 +148,40 @@ public class PostServiceTest {
         long actual = postDao.deletePost(1l, "username");
 
         assertEquals(expected.getPostId(), actual);
+    }
+
+    @Test
+    public void addPost() {
+        addPost_Post_Success();
+    }
+
+    @Test
+    public void listPost() {
+        listPost_List_Success();
+    }
+
+    @Test
+    public void listPostByUser() {
+        listPostByUser_List_Success();
+    }
+
+    @Test
+    public void listCommentsByPost() {
+        listCommentsByPost_List_SUccess();
+    }
+
+    @Test
+    public void addComment() {
+        addComment_Comment_Success();
+    }
+
+    @Test
+    public void updatePost() {
+        updatePost_Post_Success();
+    }
+
+    @Test
+    public void deletePost() {
+        deletePost_Long_Success();
     }
 }

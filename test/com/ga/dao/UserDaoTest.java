@@ -31,13 +31,10 @@ public class UserDaoTest {
 
     private List<User> sampleUserList;
 
-    @InjectMocks
-    private UserRole userRole;
 
     @Spy
     @InjectMocks
     private UserDaoImpl userDao;
-
 
     @Mock
     private SessionFactory sessionFactory;

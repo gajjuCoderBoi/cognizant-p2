@@ -62,8 +62,7 @@ public class CommentServiceTest {
 //        assertNotNull(comment);
 //    }
 
-    @Test
-    public void listCommentsByUser_List_Success() {
+    private void listCommentsByUser_List_Success() {
         /*List<Comment> expected =Arrays.asList(
                 new Comment("comment 1"),
                 new Comment("comment 2")
@@ -77,9 +76,8 @@ public class CommentServiceTest {
 
     }
 
-    @Test
-    public void listComments_List_Success() {
-        List<Comment> expected =Arrays.asList(
+    private void listComments_List_Success() {
+        List<Comment> expected = Arrays.asList(
                 new Comment("comment 1"),
                 new Comment("comment 2")
         );
@@ -92,8 +90,7 @@ public class CommentServiceTest {
 
     }
 
-    @Test
-    public void updateComment_Comment_Success() {
+    private void updateComment_Comment_Success() {
         when(commentDao.updateComment(anyLong(), any(), anyString())).thenReturn(comment);
 
         Comment comment = commentDao.updateComment(1l, this.comment, "username");
@@ -101,8 +98,7 @@ public class CommentServiceTest {
         assertEquals(this.comment.getCommentText(), comment.getCommentText());
     }
 
-    @Test
-    public void deleteComment_Long_Success() {
+    private void deleteComment_Long_Success() {
         Long expected = 1l;
 
 //        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("username");
@@ -112,5 +108,25 @@ public class CommentServiceTest {
 
         assertEquals(expected, actual);
 
+    }
+
+    @Test
+    public void listCommentsByUser() {
+        listCommentsByUser_List_Success();
+    }
+
+    @Test
+    public void listComments() {
+        listComments_List_Success();
+    }
+
+    @Test
+    public void updateComment() {
+        updateComment_Comment_Success();
+    }
+
+    @Test
+    public void deleteComment() {
+        deleteComment_Long_Success();
     }
 }
