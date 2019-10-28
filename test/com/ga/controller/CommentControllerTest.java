@@ -17,15 +17,12 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -67,7 +64,31 @@ public class CommentControllerTest {
     }
 
     @Test
-    public void addComment_Comment_Success() throws Exception {
+    public void listComments() throws Exception {
+        listComments_Comment_Success();
+    }
+
+    @Test
+    public void listCommentsByUser() throws Exception {
+        listCommentsByUser_Comment_Success();
+    }
+
+    @Test
+    public void updateComment() throws Exception {
+        updateComment_Comment_Success();
+    }
+
+    @Test
+    public void deleteComment() throws Exception {
+        deleteComment_Comment_Success();
+    }
+
+    @Test
+    public void addComment() throws Exception {
+        addComment_Comment_Success();
+    }
+
+    private void addComment_Comment_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/comment/1")
                 .header("Authorization", "Bearer 123")
@@ -91,8 +112,7 @@ public class CommentControllerTest {
                 .andReturn();
     }
 
-    @Test
-    public void listCommentsByUser_Comment_Success() throws Exception {
+    private void listCommentsByUser_Comment_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/comment/list")
                 .header("Authorization", "Bearer 1234");
@@ -112,8 +132,7 @@ public class CommentControllerTest {
                 .andReturn();
     }
 
-    @Test
-    public void listComments_Comment_Success() throws Exception {
+    private void listComments_Comment_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/comment");
 
@@ -132,8 +151,7 @@ public class CommentControllerTest {
                 .andReturn();
     }
 
-    @Test
-    public void updateComment_Comment_Success() throws Exception {
+    private void updateComment_Comment_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .put("/comment/1")
                 .header("Authorization", "Bearer 123")
@@ -157,8 +175,7 @@ public class CommentControllerTest {
                 .andReturn();
     }
 
-    @Test
-    public void deleteComment_Comment_Success() throws Exception {
+    private void deleteComment_Comment_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .delete("/comment/1")
                 .header("Authorization", "Bearer 123");
@@ -168,4 +185,7 @@ public class CommentControllerTest {
         mockMvc.perform(requestBuilder)
                 .andExpect(status().isOk());
     }
+
+
+
 }

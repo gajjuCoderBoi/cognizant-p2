@@ -41,19 +41,27 @@ public class UserRoleServiceTest {
         userRole.setName("ROLE_ADMIN");
     }
 
-    @Test
-    public void createRole_UserRole_Success() {
+    private void createRole_UserRole_Success() {
          when(userRoleDao.createRole(any())).thenReturn(userRole);
 
         assertNotNull(userRoleDao.createRole(userRole));
 
     }
 
-    @Test
-    public void getRole() {
+    private void getRole_UserRole_Success() {
         when(userRoleDao.getRoleByName(any())).thenReturn(userRole);
 
         assertNotNull(userRoleDao.getRoleByName("ADMIN"));
 
+    }
+
+    @Test
+    public void createRole() {
+        createRole_UserRole_Success();
+    }
+
+    @Test
+    public void getRole() {
+        getRole_UserRole_Success();
     }
 }

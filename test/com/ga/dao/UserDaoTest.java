@@ -20,6 +20,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 public class UserDaoTest {
@@ -30,14 +31,10 @@ public class UserDaoTest {
 
     private List<User> sampleUserList;
 
-    @InjectMocks
-    private UserRole userRole;
 
+    @Spy
     @InjectMocks
     private UserDaoImpl userDao;
-
-    @Mock
-    private UserRoleDao userRoleDao;
 
     @Mock
     private SessionFactory sessionFactory;
@@ -114,7 +111,8 @@ public class UserDaoTest {
     }
 
     private void listUsers_User_Success(){
-        when(userDao.listUsers()).thenReturn(sampleUserList);
+        doReturn(sampleUserList).when(userDao).listUsers();
+       // when(userDao.listUsers()).thenReturn(sampleUserList);
         List<User> users = userDao.listUsers();
 
 

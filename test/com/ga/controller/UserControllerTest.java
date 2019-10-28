@@ -38,8 +38,7 @@ public class UserControllerTest {
     }
 
 
-    @Test
-    public void signup_User_Success() throws Exception {
+    private void signup_User_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/user/signup")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -60,8 +59,7 @@ public class UserControllerTest {
 
     }
 
-    @Test
-    public void login_User_Success() throws Exception {
+    private void login_User_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/user/login")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -81,8 +79,7 @@ public class UserControllerTest {
 
     }
 
-    @Test
-    public void resetPassword_User_Password() throws Exception {
+    private void resetPassword_User_Password() throws Exception {
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .put("/user/reset")
@@ -111,4 +108,18 @@ public class UserControllerTest {
                 "\"password\":\"" + password + "\"}";
     }
 
+    @Test
+    public void signup() throws Exception {
+        signup_User_Success();
+    }
+
+    @Test
+    public void login() throws Exception {
+        login_User_Success();
+    }
+
+    @Test
+    public void resetPassword() throws Exception {
+        resetPassword_User_Password();
+    }
 }

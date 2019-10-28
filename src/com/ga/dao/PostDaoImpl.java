@@ -111,7 +111,7 @@ public class PostDaoImpl implements PostDao {
     @Override
     public Post updatePost(Long postId, Post post, String username) {
         User user = userDao.getUserByUsername(username);
-        Post post1 = getPostById(postId);
+        Post post1 = this.getPostById(postId);
         if (post1.getUser().getUsername().equals(username)) {
             post1.setPostText(post.getPostText());
         } else {

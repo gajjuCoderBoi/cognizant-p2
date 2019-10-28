@@ -43,8 +43,7 @@ public class UserProfileServiceTest {
         userProfile.setMobile("111-111-1111");
     }
 
-    @Test
-    public void createUserProfile_UserProfile_Success() {
+    private void createUserProfile_UserProfile_Success() {
         /*UserProfile expected = new UserProfile(
                 "fake@fake.com",
                 "111-111-1111",
@@ -58,8 +57,7 @@ public class UserProfileServiceTest {
         assertNotNull(userProfile1);
     }
 
-    @Test
-    public void updateProfile_UserProfile_Success() {
+    private void updateProfile_UserProfile_Success() {
         when(userProfileDao.updateProfile(anyString(), any())).thenReturn(userProfile);
 
         UserProfile userProfile1 = userProfileDao.updateProfile("someusername",userProfile);
@@ -68,13 +66,27 @@ public class UserProfileServiceTest {
 
     }
 
-    @Test
-    public void getUserProfile_UserProfile_Success() {
+    private void getUserProfile_UserProfile_Success() {
 //        when(jwtUtil.getUsernameFromToken(anyString())).thenReturn("123");
         when(userProfileDao.getUserProfile(anyString())).thenReturn(userProfile);
 
         UserProfile userProfile1 = userProfileDao.getUserProfile("someusername");
 
         assertNotNull(userProfile1);
+    }
+
+    @Test
+    public void createUserProfile() {
+        createUserProfile_UserProfile_Success();
+    }
+
+    @Test
+    public void updateProfile() {
+        updateProfile_UserProfile_Success();
+    }
+
+    @Test
+    public void getUserProfile() {
+        getUserProfile_UserProfile_Success();
     }
 }

@@ -63,8 +63,7 @@ public class UserServiceTest {
         user.getRoles().add(userRole);
     }
 
-    @Test
-    public void listUsers() {
+    private void listUsers_List_Success() {
       /*  List<User> expected = Arrays.asList(
                 new User("xyz","xyz"),
                 new User("abc","abc")
@@ -76,8 +75,7 @@ public class UserServiceTest {
 
     }
 
-    @Test
-    public void signup_ReturnsJwt_Success() {
+    private void signup_ReturnsJwt_Success() {
         String expectedToken = "12345";
 
         when(userDao.signup(any())).thenReturn(user);
@@ -91,8 +89,7 @@ public class UserServiceTest {
     }
 
 
-    @Test
-    public void login() {
+    private void login_JWTResponse_Success() {
         String expectedToken = "12345";
 
         when(userDao.login(any())).thenReturn(user);
@@ -107,8 +104,7 @@ public class UserServiceTest {
 
     }
 
-    @Test
-    public void update() {
+    private void update_JWTResponse_Success() {
         String expectedToken = "12345";
         when(bCryptPasswordEncoder.encode(user.getPassword())).thenReturn("robin");
         when(jwtUtil.getUsernameFromToken(anyString())).thenReturn(user.getUsername());
@@ -118,8 +114,7 @@ public class UserServiceTest {
         assertEquals(actualToken, expectedToken);
     }
 
-    @Test
-    public void delete() {
+    private void delete_Long_Success() {
         Long expected = 1l;
 
         when(userDao.delete(anyLong())).thenReturn(user);
@@ -128,6 +123,32 @@ public class UserServiceTest {
 
         assertEquals(expected, user.getUserId());
 
+    }
+
+
+    @Test
+    public void listUsers() {
+        listUsers_List_Success();
+    }
+
+    @Test
+    public void signup() {
+        signup_ReturnsJwt_Success();
+    }
+
+    @Test
+    public void login() {
+        login_JWTResponse_Success();
+    }
+
+    @Test
+    public void update() {
+        update_JWTResponse_Success();
+    }
+
+    @Test
+    public void delete() {
+        delete_Long_Success();
     }
 
 }

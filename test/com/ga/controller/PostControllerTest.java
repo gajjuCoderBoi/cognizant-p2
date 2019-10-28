@@ -82,8 +82,7 @@ public class PostControllerTest {
                 ));
     }
 
-    @Test
-    public void addPost_Post_Success() throws Exception {
+    private void addPost_Post_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/post")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -107,8 +106,7 @@ public class PostControllerTest {
 
     }
 
-    @Test
-    public void listPost_Post_Success() throws Exception {
+    private void listPost_Post_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/post/list");
 
@@ -132,8 +130,7 @@ public class PostControllerTest {
                         "]"));
     }
 
-    @Test
-    public void listPostByUser_Post_Success() throws Exception {
+    private void listPostByUser_Post_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/post/")
                 .header("Authorization", "Bearer 123");
@@ -159,8 +156,7 @@ public class PostControllerTest {
                         "]"));
     }
 
-    @Test
-    public void listCommentsByPost_Post_Success() throws Exception {
+    private void listCommentsByPost_Post_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .get("/post/1/comment/");
 
@@ -187,8 +183,7 @@ public class PostControllerTest {
     }
 
 
-    @Test
-    public void updatePost_Post_Success() throws Exception {
+    private void updatePost_Post_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .put("/post/1")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -210,8 +205,7 @@ public class PostControllerTest {
                 .andReturn();
     }
 
-    @Test
-    public void deletePost_Post_Success() throws Exception {
+    private void deletePost_Post_Success() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .delete("/post/1")
                 .header("Authorization", "Bearer 123");
@@ -220,5 +214,35 @@ public class PostControllerTest {
 
         mockMvc.perform(requestBuilder)
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void addPost() throws Exception {
+        addPost_Post_Success();
+    }
+
+    @Test
+    public void listPost() throws Exception {
+        listPost_Post_Success();
+    }
+
+    @Test
+    public void listPostByUser() throws Exception {
+        listPostByUser_Post_Success();
+    }
+
+    @Test
+    public void listCommentsByPost() throws Exception {
+        listCommentsByPost_Post_Success();
+    }
+
+    @Test
+    public void updatePost() throws Exception {
+        updatePost_Post_Success();
+    }
+
+    @Test
+    public void deletePost() throws Exception {
+        deletePost_Post_Success();
     }
 }
