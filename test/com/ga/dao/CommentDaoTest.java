@@ -179,7 +179,7 @@ public class CommentDaoTest {
 
 
     // null pointer exception on line 184, in commentDaoTest
-    
+
     private void deleteComment_Comment_Success(){
         when(userDao.getUserByUsername(any())).thenReturn(user2 );
         when(comment.getCommentId()).thenReturn(comment2.getCommentId());

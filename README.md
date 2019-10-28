@@ -27,6 +27,7 @@
 - [API](#api)
 - [API Responses](#responses)
 - [Objects](#objects)
+- [Testing](#testing)
 - [What's Included](#whats-included)
 - [Creators](#developers)
 
@@ -889,6 +890,30 @@ JwtResponse
 
 ### Full Class Diagram
 ![class-diagram](./img/full_class_diagram.png)
+
+## Testing
+
+Packages
+
+
+    
+```text
+    com.ga.controller
+        - CommentController
+        - PostController
+        - ProfileController
+        - UserController
+    com.ga.dao
+        - CommentDao
+        - PostDao
+        - UserDao
+        - UserProfileDao
+    com.ga.service
+        - CommentService
+        - PostService
+        - UserProfileService
+        - UserService
+```
 
 ## What's included
 
