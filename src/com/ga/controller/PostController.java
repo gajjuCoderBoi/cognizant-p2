@@ -25,12 +25,12 @@ public class PostController {
         return postService.listPost();
     }
 
-    @GetMapping("/")
+    @GetMapping
     public Iterable<Post> listPostByUser(@RequestHeader("Authorization") String token) {
         return postService.listPostByUser(token);
     }
 
-    @GetMapping({"/{postId}/comment/"})
+    @GetMapping({"/{postId}/comment"})
     public Iterable<Comment> listCommentsByPost(@PathVariable Long postId) {
         return postService.listCommentsByPost(postId);
     }

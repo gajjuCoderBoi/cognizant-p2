@@ -622,7 +622,7 @@ Response Body
     "userName": "might"
 }
 ```
-#### DELETE /{postId}
+#### DELETE /post/{postId}
 Authorization
 ```text
     token: Bearer Token
