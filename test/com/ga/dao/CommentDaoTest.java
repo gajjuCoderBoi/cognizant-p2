@@ -184,11 +184,7 @@ public class CommentDaoTest {
         assertEquals(savedComment.getCommentId(), dummyComment.getCommentId());
     }
 
-    ;
-
-
-    // null pointer exception on line 184, in commentDaoTest
-
+    
     private void deleteComment_Comment_Success() {
         when(userDao.getUserByUsername(any())).thenReturn(dummyUser);
         when(comment.getCommentId()).thenReturn(dummyComment.getCommentId());
@@ -197,7 +193,5 @@ public class CommentDaoTest {
         assertNotNull("Test returned null object, expected non-null", savedCommentId);
         assertEquals(savedCommentId, dummyComment.getCommentId());
     }
-
-    ;
 
 }
