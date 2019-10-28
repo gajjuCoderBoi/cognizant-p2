@@ -1,0 +1,80 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: PostDao</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: PostDao (com.ga.dao)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">PostDao$MockitoMock$2043835248</td>
+  </tr>
+  <tr>
+    <td class="name">PostDao$MockitoMock$2043835248$auxiliary$8dZzaXqI</td>
+  </tr>
+  <tr>
+    <td class="name">PostDao$MockitoMock$2043835248$auxiliary$iPnTjwOo</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.ga.entity.Comment;
+<i>4</i>&nbsp;import com.ga.entity.Post;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.List;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public interface PostDao {
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;    public Post addPost(Post post, String username);
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    public List&lt;Post&gt; listPost();
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    public List&lt;Post&gt; listPostByUser(String username);
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    public Comment addComment(Long postId, Comment comment, String username);
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;     public Post getPostById(Long postId);
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    public Post updatePost(Long postId, Post post, String username);
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    public Long deletePost(Long postId, String username);
+<i>24</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>

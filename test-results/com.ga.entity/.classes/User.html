@@ -1,0 +1,256 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: User</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.entity</a> ]
+</div>
+
+<h1>Coverage Summary for Class: User (com.ga.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">User</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.8%
+  </span>
+  <span class="absValue">
+    (15/ 16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.9%
+  </span>
+  <span class="absValue">
+    (26/ 28)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$6haJmFk0</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$Ab3vM3lN</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$b8ENSBcK</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$EqQlpTiM</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$fFYrlHjx</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$gydWW12g</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$h3ok70FQ</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$iy4Y2qEZ</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$j5cNp2zb</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$JS4NOemc</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$MF1OqD5c</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$Oz8K9RrD</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$pCpFBlYN</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$uF8PsqE7</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$vKPJ6uHv</td>
+  </tr>
+  <tr>
+    <td class="name">User$MockitoMock$1928362501$auxiliary$ztrdQhNY</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    93.8%
+  </span>
+  <span class="absValue">
+    (15/ 16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.9%
+  </span>
+  <span class="absValue">
+    (26/ 28)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.entity;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonIgnore;
+<i>4</i>&nbsp;import com.fasterxml.jackson.core.PrettyPrinter;
+<i>5</i>&nbsp;import org.hibernate.annotations.Fetch;
+<i>6</i>&nbsp;import org.hibernate.annotations.FetchMode;
+<i>7</i>&nbsp;import org.hibernate.annotations.LazyCollection;
+<i>8</i>&nbsp;import org.hibernate.annotations.LazyCollectionOption;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import javax.persistence.*;
+<i>11</i>&nbsp;import java.util.ArrayList;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;@Entity
+<i>15</i>&nbsp;@Table(name = &quot;users&quot;)
+<i>16</i>&nbsp;public class User {
+<i>17</i>&nbsp;    @Id
+<i>18</i>&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<i>19</i>&nbsp;    @Column(name = &quot;user_id&quot;)
+<i>20</i>&nbsp;    private Long userId;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @Column(unique = true, nullable = false)
+<i>23</i>&nbsp;    private String username;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    @Column(nullable = false)
+<i>26</i>&nbsp;    private String password;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    @JsonIgnore
+<i>29</i>&nbsp;    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+<i>30</i>&nbsp;    @Fetch(value = FetchMode.SUBSELECT)
+<i>31</i>&nbsp;    @JoinTable(name = &quot;users_roles&quot;,
+<i>32</i>&nbsp;        joinColumns = @JoinColumn(name = &quot;user_id&quot;),
+<i>33</i>&nbsp;            inverseJoinColumns = @JoinColumn(name = &quot;role_id&quot;)
+<i>34</i>&nbsp;    )
+<i>35</i>&nbsp;    private List&lt;UserRole&gt; roles;
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    @JsonIgnore
+<i>38</i>&nbsp;    @OneToMany(fetch = FetchType.EAGER, mappedBy = &quot;user&quot;, cascade = CascadeType.ALL)
+<i>39</i>&nbsp;    @Fetch(value = FetchMode.SUBSELECT)
+<i>40</i>&nbsp;    private List&lt;Comment&gt; comments;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    @JsonIgnore
+<i>43</i>&nbsp;    @OneToMany(fetch = FetchType.EAGER, mappedBy = &quot;user&quot;, cascade = CascadeType.ALL)
+<i>44</i>&nbsp;    @Fetch(value = FetchMode.SUBSELECT)
+<i>45</i>&nbsp;    private List&lt;Post&gt; posts;
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    @JsonIgnore
+<i>48</i>&nbsp;    @OneToOne(fetch = FetchType.EAGER, mappedBy = &quot;user&quot;, cascade = CascadeType.ALL)
+<i>49</i>&nbsp;    private UserProfile profile;
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public List&lt;UserRole&gt; getRoles() {
+<b class="fc"><i>52</i>&nbsp;        if(roles == null) return new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>53</i>&nbsp;        return roles;</b>
+<i>54</i>&nbsp;    }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    public void setRoles(List&lt;UserRole&gt; roles) {
+<b class="fc"><i>57</i>&nbsp;        this.roles = roles;</b>
+<b class="fc"><i>58</i>&nbsp;    }</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    public List&lt;Comment&gt; getComments() {
+<b class="nc"><i>61</i>&nbsp;        return comments;</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    public void setComments(List&lt;Comment&gt; comments) {
+<b class="fc"><i>65</i>&nbsp;        this.comments = comments;</b>
+<b class="fc"><i>66</i>&nbsp;    }</b>
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    public List&lt;Post&gt; getPosts() {
+<b class="fc"><i>69</i>&nbsp;        return posts;</b>
+<i>70</i>&nbsp;    }
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    public void setPosts(List&lt;Post&gt; posts) {
+<b class="fc"><i>73</i>&nbsp;        this.posts = posts;</b>
+<b class="fc"><i>74</i>&nbsp;    }</b>
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    public UserProfile getProfile() {
+<b class="fc"><i>77</i>&nbsp;        return profile;</b>
+<i>78</i>&nbsp;    }
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;    public void setProfile(UserProfile profile) {
+<b class="fc"><i>81</i>&nbsp;        this.profile = profile;</b>
+<b class="fc"><i>82</i>&nbsp;    }</b>
+<i>83</i>&nbsp;
+<b class="fc"><i>84</i>&nbsp;    public User(String username, String password) {</b>
+<b class="fc"><i>85</i>&nbsp;        this.username = username;</b>
+<b class="fc"><i>86</i>&nbsp;        this.password = password;</b>
+<b class="fc"><i>87</i>&nbsp;    }</b>
+<i>88</i>&nbsp;
+<b class="fc"><i>89</i>&nbsp;    public User() {</b>
+<b class="fc"><i>90</i>&nbsp;    }</b>
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;    public Long getUserId() {
+<b class="fc"><i>93</i>&nbsp;        return userId;</b>
+<i>94</i>&nbsp;    }
+<i>95</i>&nbsp;
+<i>96</i>&nbsp;    public void setUserId(Long userId) {
+<b class="fc"><i>97</i>&nbsp;        this.userId = userId;</b>
+<b class="fc"><i>98</i>&nbsp;    }</b>
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    public String getUsername() {
+<b class="fc"><i>101</i>&nbsp;        return username;</b>
+<i>102</i>&nbsp;    }
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    public void setUsername(String username) {
+<b class="fc"><i>105</i>&nbsp;        this.username = username;</b>
+<b class="fc"><i>106</i>&nbsp;    }</b>
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;    public String getPassword() {
+<b class="fc"><i>109</i>&nbsp;        return password;</b>
+<i>110</i>&nbsp;    }
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;    public void setPassword(String password) {
+<b class="fc"><i>113</i>&nbsp;        this.password = password;</b>
+<b class="fc"><i>114</i>&nbsp;    }</b>
+<i>115</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>

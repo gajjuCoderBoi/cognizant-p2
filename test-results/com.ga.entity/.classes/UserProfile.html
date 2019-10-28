@@ -1,0 +1,205 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserProfile</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.entity</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserProfile (com.ga.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserProfile</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (29/ 29)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$4JPSZCkO</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$5j6pLhfd</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$8RpGFh4N</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$FPTqnHvI</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$gPnuTdb4</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$HqEGqaMu</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$KtlK6fvs</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$riGTdwuK</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$U7UMkIR8</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$yEgbEVjc</td>
+  </tr>
+  <tr>
+    <td class="name">UserProfile$MockitoMock$358978057$auxiliary$ZiodkHpV</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (29/ 29)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.entity;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import javax.persistence.*;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;@Entity
+<i>7</i>&nbsp;@Table(name = &quot;profiles&quot;)
+<i>8</i>&nbsp;public class UserProfile {
+<i>9</i>&nbsp;    @Id
+<i>10</i>&nbsp;    @Column(name = &quot;profile_id&quot;)
+<i>11</i>&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<i>12</i>&nbsp;    private Long profileId;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    @Column(name = &quot;email&quot;)
+<i>15</i>&nbsp;    private String email;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    @Column(name = &quot;mobile&quot;)
+<i>18</i>&nbsp;    private String mobile;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    @Column(name = &quot;address&quot;)
+<i>21</i>&nbsp;    private String address;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    public void setUser(User user) {
+<b class="fc"><i>24</i>&nbsp;        this.user = user;</b>
+<b class="fc"><i>25</i>&nbsp;    }</b>
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+<i>28</i>&nbsp;    @JoinColumn(name = &quot;user_id&quot;)
+<i>29</i>&nbsp;    private User user;
+<i>30</i>&nbsp;
+<b class="fc"><i>31</i>&nbsp;    public UserProfile(String email, String mobile, String address) {</b>
+<b class="fc"><i>32</i>&nbsp;        this.email = email;</b>
+<b class="fc"><i>33</i>&nbsp;        this.mobile = mobile;</b>
+<b class="fc"><i>34</i>&nbsp;        this.address = address;</b>
+<b class="fc"><i>35</i>&nbsp;    }</b>
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    public void updateProfile(UserProfile profile) {
+<b class="fc"><i>38</i>&nbsp;        this.email = profile.email;</b>
+<b class="fc"><i>39</i>&nbsp;        this.mobile = profile.mobile;</b>
+<b class="fc"><i>40</i>&nbsp;        this.address = profile.address;</b>
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;
+<b class="fc"><i>43</i>&nbsp;    public UserProfile(String email, String mobile, String address, User user) {</b>
+<b class="fc"><i>44</i>&nbsp;        this.email = email;</b>
+<b class="fc"><i>45</i>&nbsp;        this.mobile = mobile;</b>
+<b class="fc"><i>46</i>&nbsp;        this.address = address;</b>
+<b class="fc"><i>47</i>&nbsp;        this.user = user;</b>
+<b class="fc"><i>48</i>&nbsp;    }</b>
+<i>49</i>&nbsp;
+<b class="fc"><i>50</i>&nbsp;    public UserProfile() {}</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    public void setProfileId(Long profileId) {
+<b class="fc"><i>53</i>&nbsp;        this.profileId = profileId;</b>
+<b class="fc"><i>54</i>&nbsp;    }</b>
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    public String getEmail() {
+<b class="fc"><i>57</i>&nbsp;        return email;</b>
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    public void setEmail(String email) {
+<b class="fc"><i>61</i>&nbsp;        this.email = email;</b>
+<b class="fc"><i>62</i>&nbsp;    }</b>
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    public String getMobile() {
+<b class="fc"><i>65</i>&nbsp;        return mobile;</b>
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    public void setMobile(String mobile) {
+<b class="fc"><i>69</i>&nbsp;        this.mobile = mobile;</b>
+<b class="fc"><i>70</i>&nbsp;    }</b>
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    public String getAddress() {
+<b class="fc"><i>73</i>&nbsp;        return address;</b>
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    public void setAddress(String address) {
+<b class="fc"><i>77</i>&nbsp;        this.address = address;</b>
+<b class="fc"><i>78</i>&nbsp;    }</b>
+<i>79</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Post</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.entity</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Post (com.ga.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Post</td>
+<td class="coverageStat">
+  <span class="percent">
+    86.7%
+  </span>
+  <span class="absValue">
+    (13/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84.8%
+  </span>
+  <span class="absValue">
+    (28/ 33)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$53QZsH4s</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$cKV5y8mB</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$EBnS3xp1</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$HEGZ4tgE</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$J4GPmq8f</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$j5wl41nC</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$k6it5Q8g</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$LPA2jRHN</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$MLwGJop5</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$OMHT7w45</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$vZHKhLIF</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$xazo7FQ3</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$YTWcMT86</td>
+  </tr>
+  <tr>
+    <td class="name">Post$MockitoMock$1725874657$auxiliary$Zkq9YalW</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    86.7%
+  </span>
+  <span class="absValue">
+    (13/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84.8%
+  </span>
+  <span class="absValue">
+    (28/ 33)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.entity;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonIgnore;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import javax.persistence.*;
+<i>6</i>&nbsp;import java.util.ArrayList;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;@Entity
+<i>10</i>&nbsp;@Table(name = &quot;posts&quot;)
+<i>11</i>&nbsp;public class  Post {
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    @Id
+<i>15</i>&nbsp;    @Column(name = &quot;post_id&quot;)
+<i>16</i>&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<i>17</i>&nbsp;    private Long postId;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @Column
+<i>20</i>&nbsp;    private String title;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @Column
+<i>23</i>&nbsp;    private String postText;
+<i>24</i>&nbsp;
+<b class="fc"><i>25</i>&nbsp;    public Post(Long postId,String title, String postText, User user, List&lt;Comment&gt; comments) {</b>
+<b class="fc"><i>26</i>&nbsp;        this.title = title;</b>
+<b class="fc"><i>27</i>&nbsp;        this.postText = postText;</b>
+<b class="fc"><i>28</i>&nbsp;        this.user = user;</b>
+<b class="fc"><i>29</i>&nbsp;        this.comments = comments;</b>
+<b class="fc"><i>30</i>&nbsp;        this.postId = postId;</b>
+<b class="fc"><i>31</i>&nbsp;    }</b>
+<i>32</i>&nbsp;
+<b class="fc"><i>33</i>&nbsp;    public Post() {}</b>
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    @JsonIgnore
+<i>36</i>&nbsp;    @ManyToOne(fetch = FetchType.EAGER,
+<i>37</i>&nbsp;            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+<i>38</i>&nbsp;    @JoinColumn(name = &quot;user_id&quot;)
+<i>39</i>&nbsp;    private User user;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    @JsonIgnore
+<i>44</i>&nbsp;    @OneToMany(fetch = FetchType.EAGER, mappedBy = &quot;post&quot;,
+<i>45</i>&nbsp;            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+<i>46</i>&nbsp;    private List&lt;Comment&gt; comments;
+<i>47</i>&nbsp;
+<b class="fc"><i>48</i>&nbsp;    public Post(long l, String dummy_post_title, String dummy_post_text) {</b>
+<b class="fc"><i>49</i>&nbsp;        setPostId(l);</b>
+<b class="fc"><i>50</i>&nbsp;        setTitle(dummy_post_title);</b>
+<b class="fc"><i>51</i>&nbsp;        setPostText(dummy_post_text);</b>
+<b class="fc"><i>52</i>&nbsp;    }</b>
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    public List&lt;Comment&gt; getComments() {
+<b class="nc"><i>55</i>&nbsp;        return comments;</b>
+<i>56</i>&nbsp;    }
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    public void setComments(List&lt;Comment&gt; comments) {
+<b class="fc"><i>59</i>&nbsp;        this.comments = comments;</b>
+<b class="fc"><i>60</i>&nbsp;    }</b>
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    public User getUser() {
+<b class="fc"><i>63</i>&nbsp;        return user;</b>
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    public void setUser(User user) {
+<b class="fc"><i>67</i>&nbsp;        this.user = user;</b>
+<b class="fc"><i>68</i>&nbsp;    }</b>
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    public long getPostId() {
+<b class="fc"><i>72</i>&nbsp;        return postId;</b>
+<i>73</i>&nbsp;    }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    public void setPostId(long postId) {
+<b class="fc"><i>76</i>&nbsp;        this.postId = postId;</b>
+<b class="fc"><i>77</i>&nbsp;    }</b>
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    public String getUserName() {
+<b class="fc"><i>80</i>&nbsp;        return user.getUsername();</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    public String getTitle() {
+<b class="fc"><i>84</i>&nbsp;        return title;</b>
+<i>85</i>&nbsp;    }
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    public void setTitle(String title) {
+<b class="fc"><i>88</i>&nbsp;        this.title = title;</b>
+<b class="fc"><i>89</i>&nbsp;    }</b>
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    public String getPostText() {
+<b class="fc"><i>92</i>&nbsp;        return postText;</b>
+<i>93</i>&nbsp;    }
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;    public void setPostText(String postText) {
+<b class="fc"><i>96</i>&nbsp;        this.postText = postText;</b>
+<b class="fc"><i>97</i>&nbsp;    }</b>
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    public List&lt;Comment&gt; addComments(Comment comment) {
+<b class="nc"><i>100</i>&nbsp;        if(comments == null)</b>
+<b class="nc"><i>101</i>&nbsp;            comments = new ArrayList&lt;&gt;();</b>
+<i>102</i>&nbsp;
+<b class="nc"><i>103</i>&nbsp;        comments.add(comment);</b>
+<b class="nc"><i>104</i>&nbsp;        return comments;</b>
+<i>105</i>&nbsp;    }
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>

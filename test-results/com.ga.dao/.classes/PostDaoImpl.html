@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: PostDaoImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: PostDaoImpl (com.ga.dao)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PostDaoImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.3%
+  </span>
+  <span class="absValue">
+    (56/ 60)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$1U9ZEIlK</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$4A3k7GNm</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$AMUXAmSW</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$IsErWtmd</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$KVQ7eQca</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$NQpuPbZG</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$tnGVQxZy</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$VwS3Avzk</td>
+  </tr>
+  <tr>
+    <td class="name">PostDaoImpl$MockitoMock$1033474357$auxiliary$ZQu1ZRC3</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.3%
+  </span>
+  <span class="absValue">
+    (56/ 60)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.ga.entity.Comment;
+<i>4</i>&nbsp;import com.ga.entity.Post;
+<i>5</i>&nbsp;import com.ga.entity.User;
+<i>6</i>&nbsp;import org.hibernate.Session;
+<i>7</i>&nbsp;import org.hibernate.SessionFactory;
+<i>8</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>9</i>&nbsp;import org.springframework.stereotype.Repository;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import java.util.List;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;//import java.util.List;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;@Repository
+<b class="fc"><i>16</i>&nbsp;public class PostDaoImpl implements PostDao {</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    @Autowired
+<i>19</i>&nbsp;    SessionFactory sessionFactory;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    @Autowired
+<i>22</i>&nbsp;    UserDao userDao;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    @Override
+<i>26</i>&nbsp;    public Post addPost(Post post, String username) {
+<b class="fc"><i>27</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<b class="fc"><i>28</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<b class="fc"><i>29</i>&nbsp;        post.setUser(user);</b>
+<i>30</i>&nbsp;        try {
+<b class="fc"><i>31</i>&nbsp;            session.beginTransaction();</b>
+<i>32</i>&nbsp;
+<b class="fc"><i>33</i>&nbsp;            session.save(post);</b>
+<b class="fc"><i>34</i>&nbsp;            session.getTransaction().commit();</b>
+<i>35</i>&nbsp;        } finally {
+<b class="fc"><i>36</i>&nbsp;            session.close();</b>
+<b class="fc"><i>37</i>&nbsp;        }</b>
+<i>38</i>&nbsp;
+<b class="fc"><i>39</i>&nbsp;        return post;</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    @Override
+<i>45</i>&nbsp;    public List&lt;Post&gt; listPost() {
+<b class="fc"><i>46</i>&nbsp;        List&lt;Post&gt; posts = null;</b>
+<i>47</i>&nbsp;
+<b class="fc"><i>48</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;        try {
+<b class="fc"><i>51</i>&nbsp;            session.beginTransaction();</b>
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;            posts = session.createQuery(&quot;FROM Post&quot;).getResultList();</b>
+<i>54</i>&nbsp;        } finally {
+<b class="fc"><i>55</i>&nbsp;            session.close();</b>
+<b class="fc"><i>56</i>&nbsp;        }</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        return posts;</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    @Override
+<i>62</i>&nbsp;    public List&lt;Post&gt; listPostByUser(String username) {
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;
+<b class="nc"><i>65</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<b class="nc"><i>66</i>&nbsp;        return user.getPosts();</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    @Override
+<i>70</i>&nbsp;    public Comment addComment(Long postId, Comment comment, String username) {
+<b class="fc"><i>71</i>&nbsp;        Post post = getPostById(postId);</b>
+<b class="fc"><i>72</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<i>73</i>&nbsp;
+<b class="fc"><i>74</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;        try {
+<b class="fc"><i>77</i>&nbsp;            session.beginTransaction();</b>
+<b class="fc"><i>78</i>&nbsp;            comment.setPost(post);</b>
+<b class="fc"><i>79</i>&nbsp;            comment.setUser(user);</b>
+<b class="fc"><i>80</i>&nbsp;            session.save(comment);</b>
+<i>81</i>&nbsp;            /*post = (Post)session.createQuery(&quot;FROM Post p WHERE p.postId = &#39;&quot; + postId + &quot;&#39;&quot;).uniqueResult();
+<i>82</i>&nbsp;            comment = session.get(Comment.class, commentId);
+<i>83</i>&nbsp;            post.addComments(comment);
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;            session.update(post);*/
+<i>86</i>&nbsp;
+<b class="fc"><i>87</i>&nbsp;            session.getTransaction().commit();</b>
+<i>88</i>&nbsp;        } finally {
+<b class="fc"><i>89</i>&nbsp;            session.close();</b>
+<b class="fc"><i>90</i>&nbsp;        }</b>
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;        return comment;</b>
+<i>93</i>&nbsp;    }
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;
+<i>96</i>&nbsp;    @Override
+<i>97</i>&nbsp;    public Post getPostById(Long postId) {
+<b class="fc"><i>98</i>&nbsp;        Post post = null;</b>
+<i>99</i>&nbsp;
+<b class="fc"><i>100</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;        try {
+<b class="fc"><i>103</i>&nbsp;            session.beginTransaction();</b>
+<b class="fc"><i>104</i>&nbsp;            post = session.get(Post.class, postId);</b>
+<i>105</i>&nbsp;        } finally {
+<b class="fc"><i>106</i>&nbsp;            session.close();</b>
+<b class="fc"><i>107</i>&nbsp;        }</b>
+<b class="fc"><i>108</i>&nbsp;        return post;</b>
+<i>109</i>&nbsp;    }
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;    @Override
+<i>112</i>&nbsp;    public Post updatePost(Long postId, Post post, String username) {
+<b class="fc"><i>113</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<b class="fc"><i>114</i>&nbsp;        Post post1 = this.getPostById(postId);</b>
+<b class="fc"><i>115</i>&nbsp;        if (post1.getUser().getUsername().equals(username)) {</b>
+<b class="fc"><i>116</i>&nbsp;            post1.setPostText(post.getPostText());</b>
+<i>117</i>&nbsp;        } else {
+<b class="nc"><i>118</i>&nbsp;            return null;</b>
+<i>119</i>&nbsp;        }
+<b class="fc"><i>120</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>121</i>&nbsp;        try {
+<b class="fc"><i>122</i>&nbsp;            session.beginTransaction();</b>
+<b class="fc"><i>123</i>&nbsp;            session.update(post1);</b>
+<b class="fc"><i>124</i>&nbsp;            session.getTransaction().commit();</b>
+<i>125</i>&nbsp;        } finally {
+<b class="fc"><i>126</i>&nbsp;            session.close();</b>
+<b class="fc"><i>127</i>&nbsp;        }</b>
+<b class="fc"><i>128</i>&nbsp;        return post1;</b>
+<i>129</i>&nbsp;    }
+<i>130</i>&nbsp;
+<i>131</i>&nbsp;    @Override
+<i>132</i>&nbsp;    public Long deletePost(Long postId, String username) {
+<b class="fc"><i>133</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<b class="fc"><i>134</i>&nbsp;        Post post1 = getPostById(postId);</b>
+<b class="fc"><i>135</i>&nbsp;        if (!(post1.getUser().getUsername().equals(username))) {</b>
+<b class="nc"><i>136</i>&nbsp;            return null;</b>
+<i>137</i>&nbsp;        }
+<b class="fc"><i>138</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>139</i>&nbsp;        try {
+<b class="fc"><i>140</i>&nbsp;            session.beginTransaction();</b>
+<b class="fc"><i>141</i>&nbsp;            session.delete(post1);</b>
+<b class="fc"><i>142</i>&nbsp;            session.getTransaction().commit();</b>
+<i>143</i>&nbsp;        } finally {
+<b class="fc"><i>144</i>&nbsp;            session.close();</b>
+<b class="fc"><i>145</i>&nbsp;        }</b>
+<b class="fc"><i>146</i>&nbsp;        return post1.getPostId();</b>
+<i>147</i>&nbsp;    }
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;
+<i>150</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>

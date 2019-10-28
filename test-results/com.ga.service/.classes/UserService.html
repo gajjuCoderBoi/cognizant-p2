@@ -1,0 +1,75 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserService</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.service</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserService (com.ga.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$1947374756</td>
+  </tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$1947374756$auxiliary$p7zBDuA4</td>
+  </tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$1947374756$auxiliary$VVnE5xHF</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.service;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.ga.entity.User;
+<i>4</i>&nbsp;import javafx.util.Pair;
+<i>5</i>&nbsp;import org.springframework.security.core.userdetails.UserDetailsService;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public interface UserService extends UserDetailsService {
+<i>10</i>&nbsp;    public List&lt;User&gt; listUsers();
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;    public Pair&lt;String, String&gt; signup(User user);
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    public Pair&lt;String, String&gt; login(User user);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    public Pair&lt;String, String&gt; update(User user, String token);
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    public User delete(Long userId);
+<i>19</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>

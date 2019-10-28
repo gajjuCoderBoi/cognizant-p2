@@ -1,0 +1,137 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CommentController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.controller</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CommentController (com.ga.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CommentController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.controller;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.ga.entity.Comment;
+<i>4</i>&nbsp;import com.ga.entity.Post;
+<i>5</i>&nbsp;import com.ga.service.CommentService;
+<i>6</i>&nbsp;import com.ga.service.PostService;
+<i>7</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>8</i>&nbsp;import org.springframework.http.HttpStatus;
+<i>9</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i>10</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;@RestController
+<i>13</i>&nbsp;@RequestMapping(&quot;/comment&quot;)
+<b class="fc"><i>14</i>&nbsp;public class CommentController {</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    @Autowired
+<i>17</i>&nbsp;    CommentService commentService;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @Autowired
+<i>20</i>&nbsp;    PostService postService;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @GetMapping
+<i>23</i>&nbsp;    public Iterable&lt;Comment&gt; listComments() {
+<b class="fc"><i>24</i>&nbsp;        return commentService.listComments();</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    @GetMapping(&quot;/list&quot;)
+<i>28</i>&nbsp;    public Iterable&lt;Comment&gt; listCommentsByUser(@RequestHeader(&quot;Authorization&quot;) String token) {
+<b class="fc"><i>29</i>&nbsp;        return commentService.listCommentsByUser(token);</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    @PutMapping(&quot;/{commentId}&quot;)
+<i>33</i>&nbsp;    public ResponseEntity&lt;?&gt; updateComment(@PathVariable Long commentId, @RequestBody Comment comment, @RequestHeader(&quot;Authorization&quot;) String token) {
+<b class="fc"><i>34</i>&nbsp;        Comment comment1 = commentService.updateComment(commentId, comment, token);</b>
+<b class="fc"><i>35</i>&nbsp;        return comment1 != null ?</b>
+<b class="fc"><i>36</i>&nbsp;                ResponseEntity.ok(comment1) :</b>
+<i>37</i>&nbsp;                new ResponseEntity&lt;&gt;(HttpStatus.UNAUTHORIZED);
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    @DeleteMapping(&quot;/{commentId}&quot;)
+<i>41</i>&nbsp;    public ResponseEntity&lt;?&gt; deleteComment(@PathVariable Long commentId, @RequestHeader(&quot;Authorization&quot;) String token) {
+<b class="fc"><i>42</i>&nbsp;        Long comment1 = commentService.deleteComment(commentId, token);</b>
+<b class="fc"><i>43</i>&nbsp;        return comment1 != null ?</b>
+<b class="fc"><i>44</i>&nbsp;                ResponseEntity.ok(comment1) :</b>
+<i>45</i>&nbsp;                new ResponseEntity&lt;&gt;(HttpStatus.UNAUTHORIZED);
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    @PostMapping({&quot;/{postId}&quot;})
+<i>49</i>&nbsp;    public Comment addComment(@PathVariable Long postId, @RequestBody Comment comment, @RequestHeader(&quot;Authorization&quot;) String token) {
+<b class="fc"><i>50</i>&nbsp;        return postService.addComment(postId, comment, token);</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;}
+<i>54</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>

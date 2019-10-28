@@ -919,22 +919,10 @@ Packages
 ### Results
 
 <html id="htmlId">
-<head>
-  <title>Coverage Report :: Summary</title>
-  <style type="text/css">
-    @import "../.css/coverage.css";
-  </style>
-</head>
 
 <body>
-<div class="header"></div>
 
-<div class="content">
-<div class="breadCrumbs">
-   [ all classes ]
-</div>
-
-<h1>Overall Coverage Summary </h1>
+<h4>Overall Coverage Summary </h4>
 <table class="coverageStats">
   <tr>
     <th class="name">Package</th>
@@ -981,7 +969,7 @@ Packages
 </table>
 
 <br/>
-<h2>Coverage Breakdown</h2>
+<h4>Coverage Breakdown</h4>
 
 <table class="coverageStats">
   <tr>

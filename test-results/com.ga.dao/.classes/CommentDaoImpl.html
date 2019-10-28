@@ -1,0 +1,228 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CommentDaoImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ga.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CommentDaoImpl (com.ga.dao)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CommentDaoImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    42.9%
+  </span>
+  <span class="absValue">
+    (3/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    52.4%
+  </span>
+  <span class="absValue">
+    (22/ 42)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$2vc9fluD</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$7qDkYnoo</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$cSa3FhCc</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$Ea8xLrvY</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$IC3kA0vA</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$Lz7QwyXJ</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$Sa2tLj7U</td>
+  </tr>
+  <tr>
+    <td class="name">CommentDaoImpl$MockitoMock$95178788$auxiliary$VOd9melJ</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    42.9%
+  </span>
+  <span class="absValue">
+    (3/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    52.4%
+  </span>
+  <span class="absValue">
+    (22/ 42)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ga.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.ga.entity.Comment;
+<i>4</i>&nbsp;import com.ga.entity.Post;
+<i>5</i>&nbsp;import com.ga.entity.User;
+<i>6</i>&nbsp;import org.hibernate.Session;
+<i>7</i>&nbsp;import org.hibernate.SessionFactory;
+<i>8</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>9</i>&nbsp;import org.springframework.stereotype.Repository;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import java.util.List;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;@Repository
+<b class="fc"><i>14</i>&nbsp;public class CommentDaoImpl implements CommentDao {</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    @Autowired
+<i>17</i>&nbsp;    PostDao postDao;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @Autowired
+<i>20</i>&nbsp;    UserDao userDao;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @Autowired
+<i>23</i>&nbsp;    SessionFactory sessionFactory;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;        @Override
+<i>28</i>&nbsp;    public List&lt;Comment&gt; listComments() {
+<b class="nc"><i>29</i>&nbsp;        List&lt;Comment&gt; comments = null;</b>
+<i>30</i>&nbsp;
+<b class="nc"><i>31</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;        try {
+<b class="nc"><i>34</i>&nbsp;            session.beginTransaction();</b>
+<i>35</i>&nbsp;
+<b class="nc"><i>36</i>&nbsp;            comments = session.createQuery(&quot;FROM Comment&quot;).getResultList();</b>
+<i>37</i>&nbsp;        } finally {
+<b class="nc"><i>38</i>&nbsp;            session.close();</b>
+<b class="nc"><i>39</i>&nbsp;        }</b>
+<i>40</i>&nbsp;
+<b class="nc"><i>41</i>&nbsp;        return comments;</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    @Override
+<i>46</i>&nbsp;    public List&lt;Comment&gt; listCommentsByUser(String username) {
+<b class="nc"><i>47</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<b class="nc"><i>48</i>&nbsp;        return user.getComments();</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    @Override
+<i>52</i>&nbsp;    public List&lt;Comment&gt; listCommentsByPost(Long postId) {
+<b class="nc"><i>53</i>&nbsp;        Post post = postDao.getPostById(postId);</b>
+<b class="nc"><i>54</i>&nbsp;        return post.getComments();</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    @Override
+<i>58</i>&nbsp;    public Comment getCommentById(Long commentId) {
+<b class="nc"><i>59</i>&nbsp;        Comment comment = null;</b>
+<i>60</i>&nbsp;
+<b class="nc"><i>61</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;        try {
+<b class="nc"><i>64</i>&nbsp;            session.beginTransaction();</b>
+<b class="nc"><i>65</i>&nbsp;            comment = session.get(Comment.class, commentId);</b>
+<i>66</i>&nbsp;        } finally {
+<b class="nc"><i>67</i>&nbsp;            session.close();</b>
+<b class="nc"><i>68</i>&nbsp;        }</b>
+<b class="nc"><i>69</i>&nbsp;        return comment;</b>
+<i>70</i>&nbsp;    }
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    @Override
+<i>73</i>&nbsp;    public Comment updateComment(Long commentId, Comment comment, String username) {
+<b class="fc"><i>74</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<b class="fc"><i>75</i>&nbsp;        Comment comment1 = getCommentById(commentId);</b>
+<b class="fc"><i>76</i>&nbsp;        if(comment1.getUser().getUsername().equals(username)) {</b>
+<b class="fc"><i>77</i>&nbsp;            comment1.setCommentText(comment.getCommentText());</b>
+<i>78</i>&nbsp;        } else {
+<b class="nc"><i>79</i>&nbsp;            return null;</b>
+<i>80</i>&nbsp;        }
+<b class="fc"><i>81</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>82</i>&nbsp;        try {
+<b class="fc"><i>83</i>&nbsp;            session.beginTransaction();</b>
+<b class="fc"><i>84</i>&nbsp;            session.update(comment1);</b>
+<b class="fc"><i>85</i>&nbsp;            session.getTransaction().commit();</b>
+<i>86</i>&nbsp;        } finally {
+<b class="fc"><i>87</i>&nbsp;            session.close();</b>
+<b class="fc"><i>88</i>&nbsp;        }</b>
+<b class="fc"><i>89</i>&nbsp;        return comment1;</b>
+<i>90</i>&nbsp;        }
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;    @Override
+<i>93</i>&nbsp;    public Long deleteComment(Long commentId, String username) {
+<b class="fc"><i>94</i>&nbsp;        User user = userDao.getUserByUsername(username);</b>
+<b class="fc"><i>95</i>&nbsp;        Comment comment1 = getCommentById(commentId);</b>
+<b class="fc"><i>96</i>&nbsp;        if (!(comment1.getUser().getUsername().equals(username))) {</b>
+<b class="nc"><i>97</i>&nbsp;            return null;</b>
+<i>98</i>&nbsp;        }
+<b class="fc"><i>99</i>&nbsp;        Session session = sessionFactory.getCurrentSession();</b>
+<i>100</i>&nbsp;        try {
+<b class="fc"><i>101</i>&nbsp;            session.beginTransaction();</b>
+<b class="fc"><i>102</i>&nbsp;            session.delete(comment1);</b>
+<b class="fc"><i>103</i>&nbsp;            session.getTransaction().commit();</b>
+<i>104</i>&nbsp;        } finally {
+<b class="fc"><i>105</i>&nbsp;            session.close();</b>
+<b class="fc"><i>106</i>&nbsp;        }</b>
+<i>107</i>&nbsp;
+<b class="fc"><i>108</i>&nbsp;        return comment1.getCommentId();</b>
+<i>109</i>&nbsp;    }
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-10-28 01:00</div>
+</div>
+</body>
+</html>
