@@ -20,8 +20,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class CommentDaoTest {
 
@@ -70,9 +69,12 @@ public class CommentDaoTest {
     @InjectMocks
     private User dummyUser;
 
+    @Spy
+    @InjectMocks
+    private CommentDaoImpl commentDaoInjectMock;
 
     @Mock
-    private CommentDaoImpl commentDao;
+    private CommentDaoImpl commentDaoMockOnly;
 
     @Before
     public void initDummyData() {
@@ -96,14 +98,14 @@ public class CommentDaoTest {
 
         sampleCommentList = Arrays.asList(
                 new Comment(
-                    "Custom comment text"
+                        "Custom comment text"
                 )
         );
 
         samplePostList = Arrays.asList(
                 new Post(
                         1L,
-                    "Custom Post Title",
+                        "Custom Post Title",
                         "Custom Post Text"
                 )
         );
@@ -135,11 +137,11 @@ public class CommentDaoTest {
     }
 
     @Test
-    public void deleteComment(){
+    public void deleteComment() {
         deleteComment_Comment_Success();
     }
 
-    private void listCommentsByUser_Comment_Success(){
+    private void listCommentsByUser_Comment_Success() {
         when(userDao.getUserByUsername(anyString())).thenReturn(dummyUser);
         when(user.getComments()).thenReturn(sampleCommentList);
         List<Comment> savedComments = user.getComments();
@@ -147,19 +149,23 @@ public class CommentDaoTest {
         assertEquals(savedComments, sampleCommentList);
     }
 
-    private void listCommentsByPost_Comment_Success(){
+    private void listCommentsByPost_Comment_Success() {
         when(post.getComments()).thenReturn(sampleCommentList);
         List<Comment> savedComments = post.getComments();
         assertNotNull("Test returned null object, expected non-null", savedComments);
         assertEquals(savedComments, sampleCommentList);
-    };
+    }
 
-    private void getCommentById_Comment_Success(){
+    ;
+
+    private void getCommentById_Comment_Success() {
         when(session.get(Comment.class, dummyComment.getCommentId())).thenReturn(dummyComment);
         Comment savedComment = session.get(Comment.class, dummyComment.getCommentId());
         assertNotNull("Test returned null object, expected non-null", savedComment);
         assertEquals(savedComment.getCommentId(), dummyComment.getCommentId());
-    };
+    }
+
+    ;
 
     //    null pointer exception on line 174, in commentDaoTest
 //    commentDaoImpl Line 76
@@ -169,28 +175,29 @@ public class CommentDaoTest {
 //        return null;
 //    }
 
-    private void updateComment_Comment_Success(){
+    private void updateComment_Comment_Success() {
         when(userDao.getUserByUsername(anyString())).thenReturn(dummyUser);
+        doReturn(dummyComment).when(commentDaoInjectMock).getCommentById(anyLong());
         when(comment.getCommentId()).thenReturn(dummyComment.getCommentId());
-        when(commentDao.getCommentById(anyLong())).thenReturn(dummyComment);
-        when(commentDao.updateComment(anyLong(), any(), anyString())).thenReturn(dummyComment);
-
-        Comment savedComment = commentDao.updateComment(1L, dummyComment, "batman");
+        Comment savedComment = commentDaoInjectMock.updateComment(1L, dummyComment, dummyUser.getUsername());
         assertNotNull("Test returned null object, expected non-null", savedComment);
         assertEquals(savedComment.getCommentId(), dummyComment.getCommentId());
-    };
+    }
+
+    ;
 
 
     // null pointer exception on line 184, in commentDaoTest
-    
-    private void deleteComment_Comment_Success(){
+
+    private void deleteComment_Comment_Success() {
         when(userDao.getUserByUsername(any())).thenReturn(dummyUser);
         when(comment.getCommentId()).thenReturn(dummyComment.getCommentId());
-//        when(dummyComment.getUser().getUsername().equals(anyString())).thenReturn(true);
-        when(commentDao.deleteComment(1L, "batman")).thenReturn(dummyComment.getCommentId());
-        Long savedCommentId = commentDao.deleteComment(1L, dummyUser.getUsername());
+        doReturn(dummyComment).when(commentDaoInjectMock).getCommentById(anyLong());
+        Long savedCommentId = commentDaoInjectMock.deleteComment(1L, dummyUser.getUsername());
         assertNotNull("Test returned null object, expected non-null", savedCommentId);
         assertEquals(savedCommentId, dummyComment.getCommentId());
-    };
+    }
+
+    ;
 
 }

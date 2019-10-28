@@ -1,7 +1,5 @@
 package com.ga.service;
 
-import com.ga.dao.UserRoleDao;
-import com.ga.dao.UserRoleDaoImpl;
 import com.ga.entity.UserRole;
 import org.junit.Before;
 import org.junit.Test;
