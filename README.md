@@ -28,6 +28,7 @@
 - [API Responses](#responses)
 - [Objects](#objects)
 - [Testing](#testing)
+- [Test Results](#results)
 - [What's Included](#whats-included)
 - [Creators](#developers)
 
@@ -914,6 +915,208 @@ Packages
         - UserProfileService
         - UserService
 ```
+
+### Results
+
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Summary</title>
+  <style type="text/css">
+    @import "../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+   [ all classes ]
+</div>
+
+<h1>Overall Coverage Summary </h1>
+<table class="coverageStats">
+  <tr>
+    <th class="name">Package</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+  </tr>
+  <tr>
+    <td class="name">all classes</td>
+<td class="coverageStat">
+  <span class="percent">
+    95%
+  </span>
+  <span class="absValue">
+    (19/ 20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75.3%
+  </span>
+  <span class="absValue">
+    (113/ 150)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    73.9%
+  </span>
+  <span class="absValue">
+    (322/ 436)
+  </span>
+</td>
+  </tr>
+</table>
+
+<br/>
+<h2>Coverage Breakdown</h2>
+
+<table class="coverageStats">
+  <tr>
+    <th class="name  sortedAsc
+">
+<a href="#">Package</a>    </th>
+<th class="coverageStat 
+">
+  <a href="#">Class, %</a>
+</th>
+<th class="coverageStat 
+">
+  <a href="#">Method, %</a>
+</th>
+<th class="coverageStat 
+">
+  <a href="#">Line, %</a>
+</th>
+  </tr>
+  <tr>
+    <td class="name"><a href="#">com.ga.controller</a></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (21/ 21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (32/ 32)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name"><a href="#">com.ga.dao</a></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (20/ 30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    68.4%
+  </span>
+  <span class="absValue">
+    (134/ 196)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name"><a href="#">com.ga.entity</a></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.3%
+  </span>
+  <span class="absValue">
+    (62/ 71)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.4%
+  </span>
+  <span class="absValue">
+    (130/ 147)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name"><a href="#">com.ga.service</a></td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    35.7%
+  </span>
+  <span class="absValue">
+    (10/ 28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    42.6%
+  </span>
+  <span class="absValue">
+    (26/ 61)
+  </span>
+</td>
+  </tr>
+</table>
+</div>
+
+<div class="footer">
+    </div>
+</body>
+</html>
+
 
 ## What's included
 
